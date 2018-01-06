@@ -1,0 +1,12 @@
+<aura:component >
+    <h1 class="slds-text-heading--large slds-truncate slds-m-bottom--medium">Button Menu</h1>
+    <c:dein_Alert />
+    
+    <h2 class="slds-text-heading--medium">Preview</h2>
+
+    <lightning:buttonMenu iconName="utility:settings" alternativeText="Settings" onselect="{! c.handleMenuSelect }">
+        <lightning:menuItem label="Font" value="font" />
+        <lightning:menuItem label="Size" value="size"/>
+        <lightning:menuItem label="Format" value="format" />
+    </lightning:buttonMenu>
+</aura:component>

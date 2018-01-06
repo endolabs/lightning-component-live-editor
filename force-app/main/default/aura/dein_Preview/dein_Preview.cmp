@@ -1,0 +1,13 @@
+<aura:component >
+    <aura:attribute name="body" type="String" />
+
+    <aura:method name="createComponent" action="{!c.createComponent}">
+        <aura:attribute name="component" type="Aura.Component" />
+        <aura:attribute name="type" type="String" />
+        <aura:attribute name="attributes" type="Object" />
+        <aura:attribute name="successCallback" type="Object" />
+    </aura:method>
+
+    {! v.body }
+    <div class="slds-m-bottom--small"></div>
+</aura:component>

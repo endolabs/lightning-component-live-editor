@@ -1,0 +1,5 @@
+<aura:component >
+    <lightning:clickToDial value="14155555551"/>
+    <lightning:clickToDial value="14155555552" recordId="5003000000D9duF"/>
+    <lightning:clickToDial value="14155555553" recordId="5003000000D8cuI" params="accountSid=xxx, sourceId=xxx, apiVersion=123"/>
+</aura:component>

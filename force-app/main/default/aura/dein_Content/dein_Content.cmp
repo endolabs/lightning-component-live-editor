@@ -1,0 +1,9 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+    <aura:attribute name="body" type="String" />
+    
+    <aura:handler event="c:dein_SelectMenuItemEvt" action="{!c.answer}" />
+    
+    <lightning:card >
+        {! v.body }
+    </lightning:card>
+</aura:component>

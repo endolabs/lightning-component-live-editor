@@ -1,0 +1,11 @@
+<aura:component >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="items" type="Object"/>
+    
+    <h1 class="slds-text-heading--large slds-truncate slds-m-bottom--medium">Tree</h1>
+    <c:dein_Alert />
+    
+    <h2 class="slds-text-heading--medium">Preview</h2>
+    
+    <lightning:tree items="{! v.items }" header="Roles"/>
+</aura:component>

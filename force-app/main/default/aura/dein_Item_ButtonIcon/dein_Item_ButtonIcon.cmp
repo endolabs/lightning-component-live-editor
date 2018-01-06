@@ -1,0 +1,11 @@
+<aura:component >
+    <h1 class="slds-text-heading--large slds-truncate slds-m-bottom--medium">Button Icon</h1>
+    <c:dein_Alert />
+    
+    <h2 class="slds-text-heading--medium">Preview</h2>
+    
+    <!-- Bare variant with custom "dark" CSS class added to icon svg element -->
+    <lightning:buttonIcon iconName="utility:settings" variant="bare" alternativeText="Settings" iconClass="dark"/>
+    
+    <lightning:buttonIcon iconName="utility:close" variant="bare" onclick="{! c.handleClick }" alternativeText="Close window." />
+</aura:component>

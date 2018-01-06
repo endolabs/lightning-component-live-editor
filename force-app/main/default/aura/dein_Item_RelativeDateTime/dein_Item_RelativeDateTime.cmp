@@ -1,0 +1,13 @@
+<aura:component >
+    <aura:handler name="init" value="{! this }" action="{! c.init }" />
+    <aura:attribute name="past" type="Object"/>
+    <aura:attribute name="future" type="Object"/>
+    
+    <h1 class="slds-text-heading--large slds-truncate slds-m-bottom--medium">Relative Date/Time</h1>
+    <c:dein_Alert />
+    
+    <h2 class="slds-text-heading--medium">Preview</h2>
+    
+    <p><lightning:relativeDateTime value="{! v.past }"/></p>
+    <p><lightning:relativeDateTime value="{! v.future }"/></p>
+</aura:component>

@@ -1,0 +1,19 @@
+<aura:component >
+    <aura:attribute name="selTabId" type="String" default="tab2" />
+
+    <h1 class="slds-text-heading--large slds-truncate slds-m-bottom--medium">Tab</h1>
+    <c:dein_Alert />
+    
+    <h2 class="slds-text-heading--medium">Preview</h2>
+
+    <div aura:id="data-entry">
+        <lightning:tabset onselect="{!c.tabSelected}" variant="default" selectedTabId="{!v.selTabId}">
+            <lightning:tab aura:id="tab1" tabindex="1" id="tab1" title="Tab 1" label="Tab 1">
+                First TAB
+            </lightning:tab>
+            <lightning:tab aura:id="tab2" tabindex="2" id="tab2" title="Tab 2" label="Tab 2">
+                Second tab
+            </lightning:tab>
+        </lightning:tabset>
+    </div>
+</aura:component>

@@ -1,0 +1,13 @@
+<aura:component >
+    <aura:attribute name="selItemId" type="String" default="recent" />
+    
+    <lightning:verticalNavigation onselect="{!c.itemSelected}" selectedItem="{!v.selItemId}">
+            <lightning:verticalNavigationSection label="Reports">
+                <lightning:verticalNavigationItem label="Recent" name="recent" />
+                <lightning:verticalNavigationItem label="Created by Me" name="created" />
+                <lightning:verticalNavigationItem label="Private Reports" name="private" />
+                <lightning:verticalNavigationItem label="Public Reports" name="public" />
+                <lightning:verticalNavigationItem label="All Reports" name="all" />
+            </lightning:verticalNavigationSection>
+        </lightning:verticalNavigation>	
+</aura:component>

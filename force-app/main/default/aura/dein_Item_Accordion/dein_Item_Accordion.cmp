@@ -1,0 +1,13 @@
+<aura:component >
+    <aura:attribute name="code" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.update}"/>
+    
+    <h1 class="slds-text-heading--large slds-truncate slds-m-bottom--medium">Accordion</h1>
+    
+    <h2 class="slds-text-heading--medium">Preview</h2>
+    {! v.body }
+    <div class="slds-m-bottom--small"></div>
+    
+    <h2 class="slds-text-heading--medium">Code</h2>    
+    <c:dein_Highlight aura:id="highlight" />
+</aura:component>

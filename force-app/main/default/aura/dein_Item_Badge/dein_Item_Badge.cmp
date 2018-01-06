@@ -1,0 +1,14 @@
+<aura:component >
+    <aura:attribute name="label" type="String" default="Press Me" />
+    <aura:attribute name="code" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.update}"/>
+    
+    <h1 class="slds-text-heading--large slds-truncate slds-m-bottom--medium">Badge</h1>
+    <c:dein_Alert />
+    
+    <h2 class="slds-text-heading--medium">Preview</h2>
+    <c:dein_Preview aura:id="preview" />
+    
+    <h2 class="slds-text-heading--medium">Code</h2>    
+    <c:dein_Highlight aura:id="highlight" />
+</aura:component>

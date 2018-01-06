@@ -1,0 +1,20 @@
+<aura:component >
+    <h1 class="slds-text-heading--large slds-truncate slds-m-bottom--medium">Card</h1>
+    <c:dein_Alert />
+    
+    <h2 class="slds-text-heading--medium">Preview</h2>
+    <lightning:card >
+        <aura:set attribute="title">
+            Hello!
+        </aura:set>
+        <aura:set attribute="footer">
+            <lightning:badge label="footer"/>
+        </aura:set>
+        <aura:set attribute="actions">
+            <lightning:button label="New"/>
+        </aura:set>
+        <p class="slds-p-horizontal--small">
+            Card Body (custom component)
+        </p>
+    </lightning:card>
+</aura:component>
