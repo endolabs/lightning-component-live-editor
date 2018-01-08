@@ -1,5 +1,18 @@
 # Live Editor for Base Lightning Components
 
+Under construction...
+
+## What is Base Lightning Components?
+
+https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/lightning_overview.htm
+
+> Base Lightning components are the building blocks that make up the modern Lightning Experience, Salesforce app, and Lightning Communities user interfaces.
+> Base Lightning components incorporate Lightning Design System markup and classes, providing improved performance and accessibility with a minimum footprint.
+
+## Roadmap
+
+Work in Progres
+
 ## Dev, Build and Test
 
 TBD
@@ -18,15 +31,23 @@ TBD
 
 ----
 
-## From unmanaged package
+## How to Use
 
 TBD
 
-## From deploy-to-sfdx
+- from unmanaged package
+- from deploy-to-sfdx
+- from SFDX CLI
+
+### From unmanaged package
 
 TBD
 
-## SFDX CLI
+### From deploy-to-sfdx
+
+TBD
+
+### SFDX CLI
 
 0\. If you haven’t already done so, authenticate with your hub org.
 
@@ -58,3 +79,20 @@ $ sfdx force:user:permset:assign -n dein -u myorg -o myorg
 ```
 $ sfdx force:org:open -u myorg
 ```
+
+## Limitations
+
+Not supported attribute names
+
+- body
+- class
+
+Not supported attribute types
+
+- Component[]
+- Aura.Action
+
+Not supported components
+
+- ``lightning:flow``
+- ``lightning:workspaceAPI``
