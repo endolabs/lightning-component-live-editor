@@ -15,6 +15,13 @@
                 "@flexibility": "auto",
                 "@padding": "around-small",
                 "aura:text": {
+                  "@value": "2"
+                }
+              },
+              {
+                "@flexibility": "auto",
+                "@padding": "around-small",
+                "aura:text": {
                   "@value": "3"
                 }
               },
@@ -24,53 +31,21 @@
                 "aura:text": {
                   "@value": "4"
                 }
-              },
-              {
-                "@flexibility": "auto",
-                "@padding": "around-small",
-                "aura:text": {
-                  "@value": "1"
-                }
               }
             ]
         };
 	},
     
-    layoutAttribute: function(component) {
-        return { 
-            "horizontalAlign": component.get("v.horizontalAlign"),
-            "pullToBoundary": component.get("v.pullToBoundary")
-        };
-    },
-    
-    layoutItemAttribute: function(component) {
-        return {
-            "flexibility": "auto",
-            "padding": "around-small"
-        };
-    },
-    
-    buildCode: function(component) {
+    codeInfo: function(component) {
         var template = this.getTemplate(component);
-        var codeInfo = component.find("util").parseTemplate("lightning:layout", template);
-        return codeInfo.code;
+        return component.find("util").parseTemplate("lightning:layout", template);
     },
 
-    create: function(component) {
-        var layoutAttribute = this.layoutAttribute(component);
-        var layoutItemAttribute = this.layoutItemAttribute(component);
+    create: function(component, componentsToAdd) {
+        console.log('!create', componentsToAdd);
         
-        var toAdd = [];
-        toAdd.push([ "lightning:layout", layoutAttribute ]);
-        for (var i=0; i<4; i++) {
-            toAdd.push([ "lightning:layoutItem", layoutItemAttribute ]);
-            toAdd.push([ "aura:text", { "value": i+1 }])
-        }
-                
-        $A.createComponents(toAdd, function(components, status, errorMessage) {
+        $A.createComponents(componentsToAdd, function(components, status, errorMessage) {
                 if (status === "SUCCESS") { 
-                    // var [layout, item1, item2, text1, text2] = components;
-                    // 
                     var layout = components[0];
                     
                     var body = layout.get("v.body");

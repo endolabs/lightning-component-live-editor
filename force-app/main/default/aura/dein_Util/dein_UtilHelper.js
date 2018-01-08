@@ -46,7 +46,20 @@
             };
         };
         
-        return parseTemplateInternal(componentName, template, 0);
+        var parsed = parseTemplateInternal(componentName, template, 0);
+        if (parsed.children.length) {
+            var components = [];
+            var pushCmp = function(cmp) {
+                components.push([ cmp.componentName, cmp.componentAttributes ]);
+                (cmp.children || []).forEach(function(child) {
+                   pushCmp(child); 
+                });
+            };            
+            pushCmp(parsed);
+            parsed.components = components;
+        }
+        
+        return parsed;
 	},
     
     getUtilityIconNames: function() {
