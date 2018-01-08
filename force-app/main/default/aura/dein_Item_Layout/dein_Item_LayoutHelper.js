@@ -1,25 +1,38 @@
 ({
-	getTemplate : function() {
-        var obj = {
-          "lightning:layout": {
-            "@horizontalAlign": "space",
+	getTemplate : function(component) {
+        return {
+            "@horizontalAlign": component.get("v.horizontalAlign"),
+            "@pullToBoundary": component.get("v.pullToBoundary"),
             "lightning:layoutItem": [
               {
                 "@flexibility": "auto",
                 "@padding": "around-small",
-                "ui:outputText": {
-                  "value": "1"
+                "aura:text": {
+                  "@value": "1"
                 }
               },
               {
                 "@flexibility": "auto",
                 "@padding": "around-small",
-                "ui:outputText": {
-                  "value": "1"
+                "aura:text": {
+                  "@value": "3"
+                }
+              },
+              {
+                "@flexibility": "auto",
+                "@padding": "around-small",
+                "aura:text": {
+                  "@value": "4"
+                }
+              },
+              {
+                "@flexibility": "auto",
+                "@padding": "around-small",
+                "aura:text": {
+                  "@value": "1"
                 }
               }
             ]
-          }
         };
 	},
     
@@ -38,23 +51,9 @@
     },
     
     buildCode: function(component) {
-        var layoutAttribute = this.layoutAttribute(component);
-        var layoutItemAttribute = this.layoutItemAttribute(component);
-
-        var codeChild = function(i) {
-            return [
-            '  <lightning:layoutItem flexibility="' + layoutItemAttribute.flexibility + '">',
-            '    ' + i,
-            '  </lightning:layoutItem>'   
-            ].join('\n') + '\n';
-        }
-        
-        var code = 
-            '<lightning:layout horizontalAlign="' + layoutAttribute.horizontalAlign 
-            + '" pullToBoundary="' + layoutAttribute.pullToBoundary + '">\n'
-            + codeChild(1) + codeChild(2) + codeChild(3) + codeChild(4)
-            +  '</lightning:layout>';
-        return code;
+        var template = this.getTemplate(component);
+        var codeInfo = component.find("util").parseTemplate("lightning:layout", template);
+        return codeInfo.code;
     },
 
     create: function(component) {

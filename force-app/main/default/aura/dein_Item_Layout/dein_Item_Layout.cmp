@@ -3,6 +3,8 @@
     <aura:attribute name="pullToBoundary" type="String" default="medium" /> 
     <aura:attribute name="code" type="String" />
     <aura:handler name="init" value="{!this}" action="{!c.update}"/>
+    
+    <c:dein_Util aura:id="util" />
 
     <h1 class="slds-text-heading--large slds-truncate slds-m-bottom--medium">Layout</h1>
     
@@ -15,7 +17,7 @@
         <option value="end">end</option>
     </lightning:select>
     <lightning:select value="{! v.pullToBoundary }" name="pullToBoundary" label="pullToBoundary"
-                      onchange="{!c.doInit}">
+                      onchange="{!c.update}">
         <option value="small">small</option>
         <option value="medium">medium</option>
         <option value="large">large</option>

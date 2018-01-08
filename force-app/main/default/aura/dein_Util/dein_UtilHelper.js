@@ -1,33 +1,52 @@
 ({
 	parseTemplate : function(componentName, template) {
-        var keys = Object.keys(template);
-        
-        var cmpAttrs = {};
-        var code = '<' + componentName;
-        
-        keys.forEach(function(key) {
-           var attrs = [];
-           
-           if (key[0] === '@') { // attribute
-               var attrName = key.substring(1);
-               var attrValue = template[key];
-        
-               attrs.push(attrName + '="' + attrValue + '"');
-               cmpAttrs[attrName] = attrValue;
-           } else {
-               // TODO: child components
-           }
-        
-           code += ' ' + attrs.join(" ");
-        });
-        
-        code += ' />';
-        
-        return {
-            componentName: componentName,
-            componentAttributes: cmpAttrs,
-            code: code
+        var parseTemplateInternal = function(componentName, template, depth) {
+            var indent = Array(depth+1).join('  ');
+            var cmpAttrs = {};
+            var code = indent + '<' + componentName;
+            var children = [];
+            
+            var keys = Object.keys(template);
+            var attrs = [];
+            
+            keys.forEach(function(key) {
+               if (key[0] === '@') { // attribute
+                   var attrName = key.substring(1);
+                   var attrValue = template[key];
+            
+                   attrs.push(attrName + '="' + attrValue + '"');
+                   cmpAttrs[attrName] = attrValue;
+               } else {
+                   if (Array.isArray(template[key])) {
+                       template[key].forEach(function(child) {
+                           children.push(parseTemplateInternal(key, child, depth+1));
+                       });
+                   } else {
+                       children.push(parseTemplateInternal(key, template[key], depth+1));
+                   }
+               }
+            });
+            code += ' ' + attrs.join(" ");
+            
+            if (children.length) {
+                code += '>'; // close start tag
+                children.forEach(function(child) {
+                    code += '\n' + child.code;
+                });
+                code += indent + '</' + componentName + '>\n'; // end tag
+            } else {
+                code += ' />\n'; // self closing
+            }
+            
+            return {
+                componentName: componentName,
+                componentAttributes: cmpAttrs,
+                code: code,
+                children: children
+            };
         };
+        
+        return parseTemplateInternal(componentName, template, 0);
 	},
     
     getUtilityIconNames: function() {
