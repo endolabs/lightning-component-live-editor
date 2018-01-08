@@ -24,16 +24,20 @@
     createComponents : function(component, callerComponent, componentInfo, onSuccess) {
         console.log("create components", componentInfo);
         
-        var pushComponent = function(cmpInfo, createdComponents) {
+        var buildComponent = function(cmpInfo, createdComponents) {
             var targetComponent = createdComponents[cmpInfo.order];
             
-            cmpInfo.children.forEach(function(child) {
-                var body = targetComponent.get("v.body");
-                if (body) {
-                    body.push(pushComponent(child, createdComponents));
-                    targetComponent.set("v.body", body);
-                }
+            var body = targetComponent.get("v.body");
+            if (!body) {
+                return targetComponent;
+            }
+            
+            // Set component's body recursively
+            cmpInfo.children.forEach(function(childCmpInfo) {
+                var childComponent = buildComponent(childCmpInfo, createdComponents);
+                body.push(childComponent);
             });
+            targetComponent.set("v.body", body);
             
             return targetComponent;
         };
@@ -42,7 +46,7 @@
             componentInfo.components, 
             function(createdComponents, status, errorMessage){
                 if (status === "SUCCESS") {
-                    var parent = pushComponent(componentInfo, createdComponents);
+                    var parent = buildComponent(componentInfo, createdComponents);
                     component.set("v.body", parent);
                         
                     if (onSuccess) {

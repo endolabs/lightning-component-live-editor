@@ -11,6 +11,7 @@
     </aura:method>
 
     <pre class="line-numbers"><code class="language-markup" aura:id="myCode">
+        <!-- highlited code is here -->
     </code></pre>
     <div class="slds-m-bottom--small"></div>
 </aura:component>
