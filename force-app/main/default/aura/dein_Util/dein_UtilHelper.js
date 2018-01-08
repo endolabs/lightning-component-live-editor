@@ -17,12 +17,19 @@
                    attrs.push(attrName + '="' + attrValue + '"');
                    cmpAttrs[attrName] = attrValue;
                } else {
-                   if (Array.isArray(template[key])) {
-                       template[key].forEach(function(child) {
+                   var value = template[key];
+                   
+                   if (typeof value === 'string' || value instanceof String) {
+                       console.log("[WARN] invalid attriubute name or value", key, value);
+                       return;
+                   }
+                   
+                   if (Array.isArray(value)) {
+                       value.forEach(function(child) {
                            children.push(parseTemplateInternal(key, child, depth+1));
                        });
                    } else {
-                       children.push(parseTemplateInternal(key, template[key], depth+1));
+                       children.push(parseTemplateInternal(key, value, depth+1));
                    }
                }
             });
