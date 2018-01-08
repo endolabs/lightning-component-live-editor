@@ -4,7 +4,7 @@
             type, attributes, 
             function(createdComponent, status, errorMessage){
                 if (status === "SUCCESS") {
-                    component.set("v.body", createdComponent);
+                    component.set("v.content", createdComponent);
                     if (onSuccess) {
                         onSuccess(callerComponent, createdComponent);
                     }
@@ -46,8 +46,9 @@
             componentInfo.components, 
             function(createdComponents, status, errorMessage){
                 if (status === "SUCCESS") {
-                    buildComponent(componentInfo, createdComponents);
-                        
+                    var p = buildComponent(componentInfo, createdComponents);
+                    component.set("v.content", p);
+                    
                     if (onSuccess) {
                         onSuccess(callerComponent, createdComponents);
                     }

@@ -1,5 +1,5 @@
 <aura:component >
-    <aura:attribute name="body" type="String" />
+    <aura:attribute name="content" type="String" />
 
     <aura:method name="createComponent" action="{!c.createComponent}">
         <aura:attribute name="component" type="Aura.Component" />
@@ -14,6 +14,6 @@
         <aura:attribute name="successCallback" type="Object" />
     </aura:method>
 
-    {! v.body }
+    {! v.content }
     <div class="slds-m-bottom--small"></div>
 </aura:component>
