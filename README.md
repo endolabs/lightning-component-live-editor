@@ -2,13 +2,14 @@
 
 :pensive: This application has not been completed yet.
 
-Live (means WYSIWYG) Editor for Base Lightning Components.
+Live (means WYSIWYG) Editor and Showcase for Base Lightning Components.
 
 ## What is Base Lightning Components?
 
 https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/lightning_overview.htm
 
 > Base Lightning components are the building blocks that make up the modern Lightning Experience, Salesforce app, and Lightning Communities user interfaces.  
+>
 > Base Lightning components incorporate Lightning Design System markup and classes, providing improved performance and accessibility with a minimum footprint.
 
 ## Installations
@@ -37,12 +38,13 @@ $ sfdx force:org:create -f config/project-scratch-def.json -a myorg -v DevHub
 $ sfdx force:source:push -u myorg
 ```
 
-3\. Assign permission set to the scratch org's administration user.  
-Note: ``-o`` (``--onhehalfof``) option means comma-separated list of usernames or aliases to assign the permission set to, and "myorg" is an alias of System Administrator User.
+3\. Assign permission set to the scratch org's administration user.
 
 ```
 $ sfdx force:user:permset:assign -n dein -u myorg -o myorg
 ```
+
+Note: ``-o`` (``--onhehalfof``) option means comma-separated list of usernames or aliases to assign the permission set to, and "myorg" is an alias of System Administrator User.
 
 4\. Open the org in your browser
 
