@@ -7,5 +7,14 @@
         var attributes = params.attributes;
         var successCallback = params.successCallback;
         helper.createComponent(component, callerComponent, type, attributes, successCallback);
+    },
+    
+    createComponents : function(component, event, helper) {
+        var params = event.getParams().arguments;
+        
+        var callerComponent = params.component;
+        var componentInfo = params.componentInfo;
+        var successCallback = params.successCallback;
+        helper.createComponents(component, callerComponent, componentInfo, successCallback);
     }
 })

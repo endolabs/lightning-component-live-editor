@@ -7,6 +7,12 @@
         <aura:attribute name="attributes" type="Object" />
         <aura:attribute name="successCallback" type="Object" />
     </aura:method>
+    
+    <aura:method name="createComponents" action="{!c.createComponents}">
+        <aura:attribute name="component" type="Aura.Component" />
+        <aura:attribute name="componentInfo" type="Object" />
+        <aura:attribute name="successCallback" type="Object" />
+    </aura:method>
 
     {! v.body }
     <div class="slds-m-bottom--small"></div>

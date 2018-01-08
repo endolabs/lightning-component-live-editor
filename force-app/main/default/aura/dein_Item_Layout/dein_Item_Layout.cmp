@@ -25,10 +25,7 @@
     <div class="slds-m-bottom--small"></div>
 
     <h2 class="slds-text-heading--medium">Preview</h2>
-    <div>
-    {! v.body }
-    </div>
-    <div class="slds-m-bottom--small"></div>
+    <c:dein_Preview aura:id="preview" />
     
     <h2 class="slds-text-heading--medium">Code</h2>
     <c:dein_Highlight aura:id="highlight" />

@@ -40,38 +40,9 @@
         var template = this.getTemplate(component);
         return component.find("util").parseTemplate("lightning:layout", template);
     },
-
-    create: function(component, componentsToAdd) {
-        console.log('!create', componentsToAdd);
-        
-        $A.createComponents(componentsToAdd, function(components, status, errorMessage) {
-                if (status === "SUCCESS") { 
-                    var layout = components[0];
-                    
-                    var body = layout.get("v.body");
-                    
-                    for (var i=1; i<components.length; i+=2) {
-                        var item = components[i];
-                        var text = components[i+1];
-                        item.set("v.body", text);
-                        
-                        body.push(item);
-                    }
-                    
-                    layout.set("v.body", body);
-                    
-                    component.set("v.body", layout);
-                }
-                else if (status === "INCOMPLETE") {
-                    console.log("No response from server or client is offline.")
-                    // Show offline error
-                }
-                else if (status === "ERROR") {
-                    console.log("Error: " + errorMessage);
-                    // Show error message
-                }
-            }
-        );        
+    
+    create: function(component, codeInfo) {
+        component.find("preview").createComponents(component, codeInfo);
     },
     
     renderCode : function(component) {

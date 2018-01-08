@@ -47,9 +47,12 @@
         };
         
         var parsed = parseTemplateInternal(componentName, template, 0);
+        var order = 0;
         if (parsed.children.length) {
             var components = [];
             var pushCmp = function(cmp) {
+                cmp.order = order++;
+                
                 components.push([ cmp.componentName, cmp.componentAttributes ]);
                 (cmp.children || []).forEach(function(child) {
                    pushCmp(child); 
