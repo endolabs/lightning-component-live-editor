@@ -1,6 +1,11 @@
 ({
     init : function(component, event, helper) {
-        component.set("v.iconNames", component.find("util").getUtilityIconNames());
+        var iconNames = component.find("util").getUtilityIconNames().map(function(icon) {
+            return 'utility:' + icon; 
+        });
+        // iconNames.push('action:change_record_type');
+        
+        component.set("v.iconNames", iconNames);
         helper.update(component);
     },
     

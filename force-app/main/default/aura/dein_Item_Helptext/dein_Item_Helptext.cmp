@@ -18,7 +18,7 @@
     <lightning:select value="{! v.iconName }" name="iconName" label="iconName"
                       onchange="{!c.update}">
         <aura:iteration items="{! v.iconNames }" var="icon">
-            <option value="{! 'utility:'+icon}" text="{! 'utility:'+icon}" />
+            <option value="{!icon}" text="{!icon}" />
         </aura:iteration>
     </lightning:select>
     <div class="slds-m-bottom--small"></div>
