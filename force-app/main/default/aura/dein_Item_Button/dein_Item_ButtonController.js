@@ -1,12 +1,11 @@
 ({
     update : function(component, event, helper) {
-        console.log("update");
+        var codeInfo = helper.codeInfo(component);
+       
+        var code = codeInfo.code;
+        component.set("v.code", code);
         
-        component.set("v.code",
-                '<lightning:input label="' + component.get("v.label") + '" variant="' 
-                + component.get("v.variant") + '" />');
-        
-        helper.create(component);
+        helper.create(component, codeInfo.componentName, codeInfo.componentAttributes);
         helper.renderCode(component);
     },
 })

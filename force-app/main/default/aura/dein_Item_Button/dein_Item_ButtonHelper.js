@@ -1,11 +1,13 @@
 ({
-	create : function(component) {
-        component.find("preview")
-          .createComponent(component, "lightning:button",
-                    {
-                        "label": component.get("v.label"),
-                        "variant": component.get("v.variant")
-                    });
+    codeInfo : function(component) {
+        return component.find("util").parseTemplate('lightning:button', {
+            '@label': component.get("v.label"),
+            '@variant': component.get("v.variant")
+        });
+    },
+    
+    create : function(component, name, attributes) {
+        component.find("preview").createComponent(component, name, attributes);
     },
     
     renderCode : function(component) {

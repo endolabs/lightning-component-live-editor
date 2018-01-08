@@ -1,11 +1,11 @@
 ({
-    update: function (component, event, helper) {
-        var code = '<lightning:progressBar value="' + component.get("v.progress") + '"'
-          + ' variant="' + component.get("v.variant") + '"'
-          + ' size="' + component.get("v.size") + '" />';
+    update: function (component, event, helper) {        
+        var codeInfo = helper.codeInfo(component);
+       
+        var code = codeInfo.code;
         component.set("v.code", code);
         
-        helper.create(component);
+        helper.create(component, codeInfo.componentName, codeInfo.componentAttributes);
         helper.renderCode(component);
     }
 })
