@@ -46,8 +46,7 @@
             componentInfo.components, 
             function(createdComponents, status, errorMessage){
                 if (status === "SUCCESS") {
-                    var parent = buildComponent(componentInfo, createdComponents);
-                    component.set("v.body", parent);
+                    buildComponent(componentInfo, createdComponents);
                         
                     if (onSuccess) {
                         onSuccess(callerComponent, createdComponents);
