@@ -24,6 +24,7 @@
     createComponents : function(component, callerComponent, componentInfo, onSuccess) {
         console.log("create components", componentInfo);
         
+        // FIXME: allow push components into not "body" attributes, like "media" in case lightning:tile"
         var buildComponent = function(cmpInfo, createdComponents) {
             var targetComponent = createdComponents[cmpInfo.order];
             
