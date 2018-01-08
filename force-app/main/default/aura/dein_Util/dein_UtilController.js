@@ -5,5 +5,9 @@
         var componentName = params.componentName;
         var template = params.template;
         return helper.parseTemplate(componentName, template);
-	}
+	},
+    
+    getUtilityIconNames : function(component, event, helper) {
+       return helper.getUtilityIconNames();
+    }
 })
