@@ -58,8 +58,14 @@
                     // Show offline error
                 }
                 else if (status === "ERROR") {
-                    console.log("Error: " + errorMessage);
                     // Show error message
+                    if (Array.isArray(errorMessage)) {
+                        errorMessage.forEach(function(err, i) {
+                           console.log("Error[" + i + "] ", err); 
+                        });
+                    } else {
+                        console.log("Error: " + errorMessage);
+                    }
                 }
             }
         );

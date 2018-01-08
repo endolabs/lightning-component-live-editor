@@ -1,48 +1,38 @@
 ({
-	create : function(component) {
-        var toAdd = [];
-        toAdd.push([ "lightning:accordion", { activeSectionName: 'B' } ]);
-        [ 'A', 'B', 'C' ].forEach(function(name) {
-            toAdd.push([ "lightning:accordionSection", {
-                name: name,
-                label: "Accordion Title " + name,
-                
-            } ]); 
-            toAdd.push([ "aura:text", { "value": 'This is the content area for section ' + name }]);
-        });
-        
-        $A.createComponents(toAdd, function(components, status, errorMessage) {
-                if (status === "SUCCESS") { 
-                    var layout = components[0];
-                    
-                    var body = layout.get("v.body");
-                    
-                    for (var i=1; i<components.length; i+=2) {
-                        var item = components[i];
-                        var text = components[i+1];
-                        item.set("v.body", text);
-                        
-                        body.push(item);
-                    }
-                    
-                    layout.set("v.body", body);
-                    
-                    component.set("v.body", layout);
+    getTemplate: function(component) {
+        return {
+            "@activeSectionName": "B",
+            "lightning:accordionSection": [
+                {
+                    "@name": "A",
+                    "@label": "Accordion Title A",
+                    "aura:text": { "@value": "This is the content area for section A" }
+                },
+                {
+                    "@name": "B",
+                    "@label": "Accordion Title B",
+                    "aura:text": { "@value": "This is the content area for section B" }
+                },
+                {
+                    "@name": "C",
+                    "@label": "Accordion Title C",
+                    "aura:text": { "@value": "This is the content area for section C" }
                 }
-                else if (status === "INCOMPLETE") {
-                    console.log("No response from server or client is offline.")
-                    // Show offline error
-                }
-                else if (status === "ERROR") {
-                    console.log("Error: " + errorMessage);
-                    // Show error message
-                }
-            }
-        );
+            ]
+        };  
+    },
+    
+    codeInfo: function(component) {
+        var template = this.getTemplate(component);
+        return component.find("util").parseTemplate("lightning:accordion", template);
+    },
+    
+    create: function(component, codeInfo) {
+        component.find("preview").createComponents(component, codeInfo);
     },
     
     renderCode : function(component) {
-        console.log("button render code.");
+        console.log("render code");
         component.find("highlight").highlightCode(component.get("v.code"));
     }
 })
