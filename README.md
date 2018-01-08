@@ -50,7 +50,7 @@ $ sfdx force:source:push -u myorg
 Note: ``-o`` (``--onhehalfof``) option means comma-separated list of usernames or aliases to assign the permission set to, and "myorg" is an alias of System Administrator User.
 
 ```
-$ sfdx force:user:permset:assign -n DemoPerm -u myorg -o myorg
+$ sfdx force:user:permset:assign -n dein -u myorg -o myorg
 ```
 
 4\. Open the org in your browser
