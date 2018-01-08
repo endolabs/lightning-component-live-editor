@@ -1,55 +1,25 @@
 # Raidein: Live Editor for Base Lightning Components
 
-Under construction...
+:pensive: This application has not been completed yet.
+
+Live (means WYSIWYG) Editor for Base Lightning Components.
 
 ## What is Base Lightning Components?
 
 https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/lightning_overview.htm
 
-> Base Lightning components are the building blocks that make up the modern Lightning Experience, Salesforce app, and Lightning Communities user interfaces.
+> Base Lightning components are the building blocks that make up the modern Lightning Experience, Salesforce app, and Lightning Communities user interfaces.  
 > Base Lightning components incorporate Lightning Design System markup and classes, providing improved performance and accessibility with a minimum footprint.
 
-## Roadmap
+## Installations
 
-Work in Progres
+- from Salesforce CLI
+- from unmanaged package (in future)
+- from deploy-to-sfdx (in future)
 
-## Dev, Build and Test
+### from Salesforce CLI
 
-TBD
-
-## Resources
-
-TBD
-
-## Description of Files and Directories
-
-TBD
-
-## Issues
-
-TBD
-
-----
-
-## How to Use
-
-TBD
-
-- from unmanaged package
-- from deploy-to-sfdx
-- from SFDX CLI
-
-### From unmanaged package
-
-TBD
-
-### From deploy-to-sfdx
-
-TBD
-
-### SFDX CLI
-
-0\. If you haven’t already done so, authenticate with your hub org.
+0\. First of all, you must install [Salesforce CLI](https://developer.salesforce.com/ja/tools/sfdxcli). And, if you haven’t already done so, authenticate with your hub org.
 
 ```
 $ sfdx force:auth:web:login -d -a DevHub
@@ -80,17 +50,28 @@ $ sfdx force:user:permset:assign -n dein -u myorg -o myorg
 $ sfdx force:org:open -u myorg
 ```
 
+### From unmanaged package
+
+TBD
+
+### From deploy-to-sfdx
+
+TBD
+
+## Roadmap
+
+Work in Progres
+
 ## Limitations
 
-Not supported attribute names
+Serveral attributes are not editable.
 
-- body
-- class
-
-Not supported attribute types
-
-- Component[]
-- Aura.Action
+- attribute names
+  - body
+  - class
+- attribute types
+  - Component[]
+  - Aura.Action
 
 Not supported components
 
