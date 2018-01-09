@@ -1,5 +1,5 @@
 ({
-    codeInfo : function(component) {
+    componentSetting : function(component) {
         return component.find("util").parseTemplate('lightning:spinner', {
             '@alternativeText': component.get("v.alternativeText"),
             '@size': component.get("v.size"),

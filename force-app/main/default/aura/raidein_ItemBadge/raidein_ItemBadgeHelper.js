@@ -1,5 +1,5 @@
 ({
-    codeInfo : function(component) {
+    componentSetting : function(component) {
         return component.find("util").parseTemplate('lightning:badge', {
             '@title': component.get("v.title"),
             '@label': component.get("v.label")

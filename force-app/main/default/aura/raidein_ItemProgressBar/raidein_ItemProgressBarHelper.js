@@ -1,5 +1,5 @@
 ({
-    codeInfo : function(component) {
+    componentSetting : function(component) {
         return component.find("util").parseTemplate('lightning:progressBar', {
             '@value': component.get("v.progress"),
             '@variant': component.get("v.variant"),

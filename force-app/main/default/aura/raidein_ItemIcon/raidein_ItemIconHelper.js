@@ -1,5 +1,5 @@
 ({
-    codeInfo : function(component) {
+    componentSetting : function(component) {
         return component.find("util").parseTemplate('lightning:icon', {
             "@iconName": "action:approval",
             "@size": "large",

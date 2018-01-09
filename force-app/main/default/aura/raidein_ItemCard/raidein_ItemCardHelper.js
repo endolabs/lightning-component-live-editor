@@ -28,13 +28,13 @@
         };
 	},
 
-    codeInfo: function(component) {
+    componentSetting: function(component) {
         var template = this.getTemplate(component);
         return component.find("util").parseTemplate("lightning:card", template);
     },
     
-    create: function(component, codeInfo) {
-        component.find("preview").createComponents(component, codeInfo);
+    create: function(component, componentSetting) {
+        component.find("preview").createComponents(component, componentSetting);
     },
     
     renderCode : function(component) {

@@ -1,11 +1,11 @@
 ({
     update : function(component, event, helper) {
-        var codeInfo = helper.codeInfo(component);
+        var componentSetting = helper.componentSetting(component);
        
-        var code = codeInfo.code;
+        var code = componentSetting.code;
         component.set("v.code", code);
         
-        helper.create(component, codeInfo.componentName, codeInfo.componentAttributes);
+        helper.create(component, componentSetting.componentName, componentSetting.componentAttributes);
         helper.renderCode(component);
     },
 })

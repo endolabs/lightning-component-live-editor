@@ -1,9 +1,9 @@
 ({
     update : function(component, event, helper) {
-        var codeInfo = helper.codeInfo(component);
-        component.set("v.code", codeInfo.code);
+        var componentSetting = helper.componentSetting(component);
+        component.set("v.code", componentSetting.code);
         
-        helper.create(component, codeInfo);
+        helper.create(component, componentSetting);
         helper.renderCode(component);		
     }
 })

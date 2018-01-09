@@ -1,8 +1,8 @@
 ({
-    createComponent : function(component, callerComponent, type, attributes, onSuccess) {
+    createComponent: function (component, callerComponent, type, attributes, onSuccess) {
         $A.createComponent(
-            type, attributes, 
-            function(createdComponent, status, errorMessage){
+            type, attributes,
+            function (createdComponent, status, errorMessage) {
                 if (status === "SUCCESS") {
                     component.set("v.content", createdComponent);
                     if (onSuccess) {
@@ -20,39 +20,37 @@
             }
         );
     },
-        
-    createComponents : function(component, callerComponent, componentInfo, onSuccess) {
-        console.log("create components", componentInfo);
-        
-        var buildComponent = function(cmpInfo, parentSetting, createdComponents) {
-            var isAuraSet = (cmpInfo.componentName == 'aura:set');
-            
-            var targetCmp = isAuraSet ? createdComponents[parentSetting.order] : createdComponents[cmpInfo.order];
-            if (targetCmp == null) {
+
+    createComponents: function (component, callerComponent, componentSetting, onSuccess) {
+        console.log("create components", componentSetting);
+
+        var buildComponent = function (setting, parentSetting, createdComponents) {
+            var isAuraSet = (setting.componentName == 'aura:set');
+
+            var targetCmp = isAuraSet ? createdComponents[parentSetting.order] : createdComponents[setting.order];
+            if (!targetCmp) {
                 return null;
             }
-            
-            var cmp = isAuraSet ? null : targetCmp;            
 
             var subCmpGroup = {};
-            cmpInfo.children.forEach(function(childCmpInfo) {
-                var childComponent = buildComponent(childCmpInfo, cmpInfo, createdComponents);
+            setting.children.forEach(function (childSetting) {
+                var childComponent = buildComponent(childSetting, setting, createdComponents);
                 if (!childComponent) return;
-                
-                var attrName = isAuraSet ? cmpInfo.componentAttributes.attribute : 'body';
-                    
+
+                var attrName = isAuraSet ? setting.componentAttributes.attribute : 'body';
+
                 var subCmps = subCmpGroup[attrName] || [];
                 subCmps.push(childComponent);
                 subCmpGroup[attrName] = subCmps;
             });
-            
-            Object.keys(subCmpGroup).forEach(function(attrName) {
+
+            Object.keys(subCmpGroup).forEach(function (attrName) {
                 if (attrName === 'body') {
                     var container = targetCmp.get("v." + attrName);
                     if (!container) return;
-                    
-                    subCmpGroup[attrName].forEach(function(subCmp) {
-                       container.push(subCmp);                        
+
+                    subCmpGroup[attrName].forEach(function (subCmp) {
+                        container.push(subCmp);
                     });
                     targetCmp.set("v." + attrName, container);
                 } else {
@@ -60,17 +58,17 @@
                     targetCmp.set("v." + attrName, subCmpGroup[attrName][0]);
                 }
             });
-            
-            return cmp;
+
+            return isAuraSet ? null : targetCmp;
         };
-        
+
         $A.createComponents(
-            componentInfo.components, 
-            function(createdComponents, status, errorMessage){
+            componentSetting.components,
+            function (createdComponents, status, errorMessage) {
                 if (status === "SUCCESS") {
-                    var p = buildComponent(componentInfo, null, createdComponents);
+                    var p = buildComponent(componentSetting, null, createdComponents);
                     component.set("v.content", p);
-                    
+
                     if (onSuccess) {
                         onSuccess(callerComponent, createdComponents);
                     }
@@ -82,8 +80,8 @@
                 else if (status === "ERROR") {
                     // Show error message
                     if (Array.isArray(errorMessage)) {
-                        errorMessage.forEach(function(err, i) {
-                           console.log("Error[" + i + "] ", err, componentInfo.components[i]); 
+                        errorMessage.forEach(function (err, i) {
+                            console.log("Error[" + i + "] ", err, componentSetting.components[i]);
                         });
                     } else {
                         console.log("Error: " + errorMessage);

@@ -1,15 +1,15 @@
 ({
     update : function(component) {
-        var codeInfo = this.codeInfo(component);
+        var componentSetting = this.componentSetting(component);
        
-        var code = codeInfo.code;
+        var code = componentSetting.code;
         component.set("v.code", code);
         
-        this.create(component, codeInfo.componentName, codeInfo.componentAttributes);
+        this.create(component, componentSetting.componentName, componentSetting.componentAttributes);
         this.renderCode(component);
     },
     
-    codeInfo : function(component) {
+    componentSetting : function(component) {
         return component.find("util").parseTemplate('lightning:buttonIcon', {
             '@alternativeText': component.get("v.alternativeText"),
             '@disabled': component.get("v.disabled"),

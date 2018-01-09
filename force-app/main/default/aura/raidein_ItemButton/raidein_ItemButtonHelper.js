@@ -1,5 +1,5 @@
 ({
-    codeInfo : function(component) {
+    componentSetting : function(component) {
         return component.find("util").parseTemplate('lightning:button', {
             '@label': component.get("v.label"),
             '@variant': component.get("v.variant")
