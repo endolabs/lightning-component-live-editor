@@ -83,7 +83,7 @@
                     // Show error message
                     if (Array.isArray(errorMessage)) {
                         errorMessage.forEach(function(err, i) {
-                           console.log("Error[" + i + "] ", err); 
+                           console.log("Error[" + i + "] ", err, componentInfo.components[i]); 
                         });
                     } else {
                         console.log("Error: " + errorMessage);

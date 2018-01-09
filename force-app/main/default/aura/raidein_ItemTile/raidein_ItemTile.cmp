@@ -1,30 +1,20 @@
 <aura:component >
+    <aura:attribute name="code" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.update}"/>
+
     <h1 class="slds-text-heading--large slds-truncate slds-m-bottom--medium">Tile</h1>
-    <c:raidein_Alert />
+    
+    <c:raidein_Util aura:id="util" />
     
     <h2 class="slds-text-heading--medium">Preview</h2>
+    <c:raidein_Preview aura:id="preview" />
+    
+    <h2 class="slds-text-heading--medium">Code</h2>
+    <c:raidein_Highlight aura:id="highlight" />
+    
+    <!-- -->
 
     <lightning:tile label="Lightning component team" href="/path/to/somewhere">
         <p class="slds-truncate" title="7 Members">7 Members</p>
-    </lightning:tile>
-    
-    <lightning:tile label="Salesforce UX" href="/path/to/somewhere">
-        <aura:set attribute="media">
-            <lightning:icon iconName="standard:groups"/>
-        </aura:set>
-        <dl class="slds-dl--horizontal">
-            <dt class="slds-dl--horizontal__label">
-                <p class="slds-truncate" title="Company">Company:</p>
-            </dt>
-            <dd class="slds-dl--horizontal__detail slds-tile__meta">
-                <p class="slds-truncate" title="Salesforce">Salesforce</p>
-            </dd>
-            <dt class="slds-dl--horizontal__label">
-                <p class="slds-truncate" title="Email">Email:</p>
-            </dt>
-            <dd class="slds-dl--horizontal__detail slds-tile__meta">
-                <p class="slds-truncate" title="salesforce-ux@salesforce.com">salesforce-ux@salesforce.com</p>
-            </dd>
-        </dl>
     </lightning:tile>
 </aura:component>
