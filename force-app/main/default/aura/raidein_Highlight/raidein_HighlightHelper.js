@@ -1,6 +1,6 @@
 ({    
     highlightCode : function(component, code, Prism) {
-        console.log("highlight code", code);
+        // console.log("highlight code", code);
 
         if (Prism) {
             var div = component.find("myCode").getElement();

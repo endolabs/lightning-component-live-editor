@@ -20,40 +20,55 @@
             }
         );
     },
-    
+        
     createComponents : function(component, callerComponent, componentInfo, onSuccess) {
         console.log("create components", componentInfo);
         
-        // FIXME: allow push components into not "body" attributes, like "media" in case lightning:tile"
-        var buildComponent = function(cmpInfo, createdComponents) {
-            if (cmpInfo.componentName === 'aura:set') {
+        var buildComponent = function(cmpInfo, parentSetting, createdComponents) {
+            var isAuraSet = (cmpInfo.componentName == 'aura:set');
+            
+            var targetCmp = isAuraSet ? createdComponents[parentSetting.order] : createdComponents[cmpInfo.order];
+            if (targetCmp == null) {
                 return null;
             }
             
-            var targetComponent = createdComponents[cmpInfo.order];
-            
-            var body = targetComponent.get("v.body");
-            if (!body) {
-                return targetComponent;
-            }
-            
-            // Set component's body recursively
+            var cmp = isAuraSet ? null : targetCmp;            
+
+            var subCmpGroup = {};
             cmpInfo.children.forEach(function(childCmpInfo) {
-                var childComponent = buildComponent(childCmpInfo, createdComponents);
-                if (childComponent) {
-                    body.push(childComponent);
+                var childComponent = buildComponent(childCmpInfo, cmpInfo, createdComponents);
+                if (!childComponent) return;
+                
+                var attrName = isAuraSet ? cmpInfo.componentAttributes.attribute : 'body';
+                    
+                var subCmps = subCmpGroup[attrName] || [];
+                subCmps.push(childComponent);
+                subCmpGroup[attrName] = subCmps;
+            });
+            
+            Object.keys(subCmpGroup).forEach(function(attrName) {
+                if (attrName === 'body') {
+                    var container = targetCmp.get("v." + attrName);
+                    if (!container) return;
+                    
+                    subCmpGroup[attrName].forEach(function(subCmp) {
+                       container.push(subCmp);                        
+                    });
+                    targetCmp.set("v." + attrName, container);
+                } else {
+                    // TODO: some attributes is array type.
+                    targetCmp.set("v." + attrName, subCmpGroup[attrName][0]);
                 }
             });
-            targetComponent.set("v.body", body);
             
-            return targetComponent;
+            return cmp;
         };
         
         $A.createComponents(
             componentInfo.components, 
             function(createdComponents, status, errorMessage){
                 if (status === "SUCCESS") {
-                    var p = buildComponent(componentInfo, createdComponents);
+                    var p = buildComponent(componentInfo, null, createdComponents);
                     component.set("v.content", p);
                     
                     if (onSuccess) {
