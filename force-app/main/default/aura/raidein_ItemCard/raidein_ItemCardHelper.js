@@ -34,8 +34,7 @@
     },
     
     create: function(component, codeInfo) {
-        // FIXME: aura:set cannot be created via $A.createComponent(s)
-        // component.find("preview").createComponents(component, codeInfo);
+        component.find("preview").createComponents(component, codeInfo);
     },
     
     renderCode : function(component) {

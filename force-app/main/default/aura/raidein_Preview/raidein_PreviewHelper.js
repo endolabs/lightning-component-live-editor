@@ -26,6 +26,10 @@
         
         // FIXME: allow push components into not "body" attributes, like "media" in case lightning:tile"
         var buildComponent = function(cmpInfo, createdComponents) {
+            if (cmpInfo.componentName === 'aura:set') {
+                return null;
+            }
+            
             var targetComponent = createdComponents[cmpInfo.order];
             
             var body = targetComponent.get("v.body");
@@ -36,7 +40,9 @@
             // Set component's body recursively
             cmpInfo.children.forEach(function(childCmpInfo) {
                 var childComponent = buildComponent(childCmpInfo, createdComponents);
-                body.push(childComponent);
+                if (childComponent) {
+                    body.push(childComponent);
+                }
             });
             targetComponent.set("v.body", body);
             

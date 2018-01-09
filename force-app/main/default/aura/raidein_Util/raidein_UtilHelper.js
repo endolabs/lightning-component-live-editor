@@ -58,9 +58,11 @@
         if (parsed.children.length) {
             var components = [];
             var pushCmp = function(cmp) {
-                cmp.order = order++;
+                if (cmp.componentName !== 'aura:set') {
+                    cmp.order = order++;
+                    components.push([ cmp.componentName, cmp.componentAttributes ]);
+                }
                 
-                components.push([ cmp.componentName, cmp.componentAttributes ]);
                 (cmp.children || []).forEach(function(child) {
                    pushCmp(child); 
                 });
