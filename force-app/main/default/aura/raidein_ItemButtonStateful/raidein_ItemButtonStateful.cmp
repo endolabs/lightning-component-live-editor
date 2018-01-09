@@ -1,0 +1,18 @@
+<aura:component >
+    <aura:attribute name="buttonstate" type="Boolean" default="false"/>
+
+    <h1 class="slds-text-heading--large slds-truncate slds-m-bottom--medium">Button Stateful</h1>
+    <c:raidein_Alert />
+    
+    <h2 class="slds-text-heading--medium">Preview</h2>
+
+    <lightning:buttonStateful labelWhenOff="Follow"
+        labelWhenOn="Following"
+        labelWhenHover="Unfollow"
+        iconNameWhenOff="utility:add"
+        iconNameWhenOn="utility:check"
+        iconNameWhenHover="utility:close"
+        state="{! v.buttonstate }"
+        onclick="{! c.handleClick }"
+    />
+</aura:component>

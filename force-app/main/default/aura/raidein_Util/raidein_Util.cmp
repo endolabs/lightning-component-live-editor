@@ -1,0 +1,9 @@
+<aura:component >
+	<aura:method name="parseTemplate" action="{!c.parseTemplate}">
+        <aura:attribute name="componentName" type="String" />
+        <aura:attribute name="template" type="String" />
+    </aura:method>
+    
+    <aura:method name="getUtilityIconNames" action="{!c.getUtilityIconNames}">
+    </aura:method>
+</aura:component>

@@ -1,0 +1,12 @@
+<aura:component >
+    <h1 class="slds-text-heading--large slds-truncate slds-m-bottom--medium">Button Group</h1>
+    <c:raidein_Alert />
+    
+    <h2 class="slds-text-heading--medium">Preview</h2>
+
+    <lightning:buttonGroup >
+        <lightning:button label="Refresh" onclick="{!c.handleClick}"/>
+        <lightning:button label="Edit" onclick="{!c.handleClick}"/>
+        <lightning:button label="Save" onclick="{!c.handleClick}"/>
+    </lightning:buttonGroup>
+</aura:component>

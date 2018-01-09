@@ -41,7 +41,7 @@ $ sfdx force:source:push -u myorg
 3\. Assign permission set to the scratch org's administration user.
 
 ```
-$ sfdx force:user:permset:assign -n dein -u myorg -o myorg
+$ sfdx force:user:permset:assign -n raidein -u myorg -o myorg
 ```
 
 Note: ``-o`` (``--onhehalfof``) option means comma-separated list of usernames or aliases to assign the permission set to, and "myorg" is an alias of System Administrator User.

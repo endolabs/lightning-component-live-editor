@@ -1,0 +1,21 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >    
+    <aura:attribute name="navigationData" type="Object" description="The list of sections and their items." />
+    <aura:attribute name="selectedItem" type="String" />
+    <aura:attribute name="selectedItemTmp" type="String" />
+    
+    <aura:handler name="init" value="{! this }" action="{! c.init }" />
+    
+    <aura:registerEvent name="onSelect" type="c:raidein_SelectMenuItemEvt" />
+    
+    <lightning:card >
+        <lightning:verticalNavigation onselect="{! c.onSelect }" compact="true" shaded="true" selectedItem="{! v.selectedItem }">
+            <aura:iteration items="{! v.navigationData }" var="section">
+                <lightning:verticalNavigationSection label="{! section.label }">
+                    <aura:iteration items="{! section.items }" var="item">
+                        <lightning:verticalNavigationItem label="{! item.label }" name="{! item.name }" />
+                    </aura:iteration>
+                </lightning:verticalNavigationSection>
+            </aura:iteration>
+        </lightning:verticalNavigation>
+    </lightning:card>
+</aura:component>

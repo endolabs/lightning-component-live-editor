@@ -1,0 +1,3 @@
+<aura:component >
+    <lightning:pill label="Pill Label" href="/path/to/some/where" onremove="{! c.handleRemove }"/>
+</aura:component>
