@@ -3,7 +3,11 @@
         var parseTemplateInternal = function(componentName, template, depth) {
             var indent = Array(depth+1).join('  ');
             var cmpAttrs = {};
-            var code = indent + '<' + componentName;
+
+            var idx = componentName.indexOf('#');
+            var name = (idx < 0) ? componentName : componentName.substring(0, idx);
+
+            var code = indent + '<' + name;
             var children = [];
             
             var keys = Object.keys(template);
@@ -40,13 +44,13 @@
                 children.forEach(function(child) {
                     code += '\n' + child.code;
                 });
-                code += indent + '</' + componentName + '>\n'; // end tag
+                code += indent + '</' + name + '>\n'; // end tag
             } else {
                 code += ' />\n'; // self closing
             }
-            
+             
             return {
-                componentName: componentName,
+                componentName: name,
                 componentAttributes: cmpAttrs,
                 code: code,
                 children: children

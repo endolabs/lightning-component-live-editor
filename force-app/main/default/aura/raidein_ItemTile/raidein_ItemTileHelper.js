@@ -22,14 +22,15 @@
                     }
                 }
             ],
-            // FIXME:
-            "dl": [
-                { "dt": dtdd("slds-dl--horizontal__label", "slds-truncate", "Company", "Company:") },
-                { "dd": dtdd("slds-dl--horizontal__detail slds-tile__meta", "slds-truncate", "Salesforce", "Salesforce") },
-                { "dt": dtdd("slds-dl--horizontal__label", "slds-truncate", "Email", "Email:") },
-                { "dd": dtdd("slds-dl--horizontal__detail slds-tile__meta", "slds-truncate",
-                            "salesforce-ux@salesforce.com", "salesforce-ux@salesforce.com") }
-            ]
+            "dl": {
+                "@class": "slds-dl--horizontal",
+                "dt#0": dtdd("slds-dl--horizontal__label", "slds-truncate", "Company", "Company:"),
+                "dd#0": dtdd("slds-dl--horizontal__detail slds-tile__meta", "slds-truncate",
+                             "Salesforce", "Salesforce"),
+                "dt#1": dtdd("slds-dl--horizontal__label", "slds-truncate", "Email", "Email:"),
+                "dd#1": dtdd("slds-dl--horizontal__detail slds-tile__meta", "slds-truncate",
+                            "salesforce-ux@salesforce.com", "salesforce-ux@salesforce.com")
+            }
         };
 	},
 
