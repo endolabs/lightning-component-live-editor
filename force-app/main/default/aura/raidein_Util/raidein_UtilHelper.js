@@ -17,9 +17,11 @@
                if (key[0] === '@') { // attribute
                    var attrName = key.substring(1);
                    var attrValue = template[key];
+                   if (attrValue !== undefined || attrValue !== null) {
             
-                   attrs.push(attrName + '="' + attrValue + '"');
-                   cmpAttrs[attrName] = attrValue;
+                     attrs.push(attrName + '="' + attrValue + '"');
+                     cmpAttrs[attrName] = attrValue;
+                   }
                } else {
                    var value = template[key];
                    
