@@ -1,18 +1,74 @@
 <aura:component >
-    <aura:attribute name="buttonstate" type="Boolean" default="false"/>
+    <aura:attribute name="iconNameWhenHover" type="String" default="utility:close" />
+    <aura:attribute name="iconNameWhenOff" type="String" default="utility:add" />
+    <aura:attribute name="iconNameWhenOn" type="String" default="utility:check" />
+    <aura:attribute name="labelWhenHover" type="String" default="Unfollow" />
+    <aura:attribute name="labelWhenOff" type="String" default="Follow" />
+    <aura:attribute name="labelWhenOn" type="String" default="Following" />
+    <aura:attribute name="iconName" type="String" default="utility:settings" />
+    <aura:attribute name="state" type="Boolean" default="false" />
+    <aura:attribute name="variant" type="String" default="neutral" />
+    <aura:attribute name="iconNames" type="String[]" default="info" />
+    <aura:attribute name="code" type="String" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+
+    <c:raidein_Util aura:id="util" />
 
     <h1 class="slds-text-heading--large slds-truncate slds-m-bottom--medium">Button Stateful</h1>
-    <c:raidein_Alert />
-    
-    <h2 class="slds-text-heading--medium">Preview</h2>
 
-    <lightning:buttonStateful labelWhenOff="Follow"
-        labelWhenOn="Following"
-        labelWhenHover="Unfollow"
-        iconNameWhenOff="utility:add"
-        iconNameWhenOn="utility:check"
-        iconNameWhenHover="utility:close"
-        state="{! v.buttonstate }"
-        onclick="{! c.handleClick }"
-    />
+    <h2 class="slds-text-heading--medium">Parameters</h2>
+
+    <lightning:select value="{! v.iconNameWhenHover }" name="iconNameWhenHover" label="iconNameWhenHover"
+                      onchange="{!c.update}">
+        <aura:iteration items="{! v.iconNames }" var="icon">
+            <option value="{!icon}" text="{!icon}" />
+        </aura:iteration>
+    </lightning:select>
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:select value="{! v.iconNameWhenOff }" name="iconNameWhenOff" label="iconNameWhenOff"
+                      onchange="{!c.update}">
+        <aura:iteration items="{! v.iconNames }" var="icon">
+            <option value="{!icon}" text="{!icon}" />
+        </aura:iteration>
+    </lightning:select>
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:select value="{! v.iconNameWhenOn }" name="iconNameWhenOn" label="iconNameWhenOn"
+                      onchange="{!c.update}">
+        <aura:iteration items="{! v.iconNames }" var="icon">
+            <option value="{!icon}" text="{!icon}" />
+        </aura:iteration>
+    </lightning:select>
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{! v.labelWhenHover }" name="labelWhenHover" label="labelWhenHover"
+                     onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{! v.labelWhenOff }" name="labelWhenOff" label="labelWhenOff"
+                     onchange="{!c.update}" required="true" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{! v.labelWhenOn }" name="labelWhenOn" label="labelWhenOn"
+                     onchange="{!c.update}" required="true" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:select value="{! v.variant }" name="variant" label="variant"
+                      onchange="{!c.update}">
+        <option value="brand">brand</option>
+        <option value="destructive">destructive</option>
+        <option value="inverse">inverse</option>
+        <option value="neutral">neutral</option>
+        <option value="success">success</option>
+        <option value="text">text</option>
+    </lightning:select>
+    <div class="slds-m-bottom--small"></div>
+
+    <h2 class="slds-text-heading--medium">Preview</h2>
+    <c:raidein_Preview aura:id="preview" />
+
+    <h2 class="slds-text-heading--medium">Code</h2>
+    <c:raidein_Highlight aura:id="highlight" />
 </aura:component>

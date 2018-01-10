@@ -1,6 +1,19 @@
 ({
-    handleClick : function (component, event, helper) {
-        var buttonstate = component.get('v.buttonstate');
-        component.set('v.buttonstate', !buttonstate);
-    }
+  handleClick: function (component, event, helper) {
+    var buttonState = component.get('v.state');
+    component.set('v.state', !buttonState);
+  },
+
+  init: function (component, event, helper) {
+    var iconNames = component.find("util").getUtilityIconNames().map(function (icon) {
+      return 'utility:' + icon;
+    });
+
+    component.set("v.iconNames", iconNames);
+    helper.update(component);
+  },
+
+  update: function (component, event, helper) {
+    helper.update(component);
+  },
 })
