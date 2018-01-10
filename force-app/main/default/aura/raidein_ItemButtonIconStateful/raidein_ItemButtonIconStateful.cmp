@@ -1,10 +1,48 @@
 <aura:component >
-    <aura:attribute name="liked" type="Boolean" default="true"/>
-    
-    <h1 class="slds-text-heading--large slds-truncate slds-m-bottom--medium">Button Icon (Stateful)</h1>
-    <c:raidein_Alert />
-    
-    <h2 class="slds-text-heading--medium">Preview</h2>
+    <aura:attribute name="alternativeText" type="String" default="alt" />
+    <aura:attribute name="selected" type="Boolean" default="true" />
+    <aura:attribute name="iconName" type="String" default="utility:settings" />
+    <aura:attribute name="size" type="String" default="medium" />
+    <aura:attribute name="variant" type="String" default="border" />
+    <aura:attribute name="iconNames" type="String[]" default="info" />
+    <aura:attribute name="code" type="String" />
+    <aura:attribute name="buttonstate" type="Boolean" default="false"/>
 
-    <lightning:buttonIconStateful iconName="utility:like" selected="{!v.liked}" alternativeText="Like" onclick="{! c.handleToggle }"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+
+    <c:raidein_Util aura:id="util" />
+
+    <h1 class="slds-text-heading--large slds-truncate slds-m-bottom--medium">Button Icon (Stateful)</h1>
+
+    <h2 class="slds-text-heading--medium">Parameters</h2>
+
+    <lightning:select value="{! v.iconName }" name="iconName" label="iconName"
+                      onchange="{!c.update}">
+        <aura:iteration items="{! v.iconNames }" var="icon">
+            <option value="{!icon}" text="{!icon}" />
+        </aura:iteration>
+    </lightning:select>
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:select value="{! v.size }" name="size" label="size"
+                      onchange="{!c.update}">
+        <option value="xx-small">xx-small</option>
+        <option value="x-small">x-small</option>
+        <option value="small">small</option>
+        <option value="medium">medium</option>
+    </lightning:select>
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:select value="{! v.variant }" name="variant" label="variant"
+                      onchange="{!c.update}">
+        <option value="bare">bare</option>
+        <option value="border-inverse">border-inverse</option>
+    </lightning:select>
+    <div class="slds-m-bottom--small"></div>
+
+    <h2 class="slds-text-heading--medium">Preview</h2>
+    <c:raidein_Preview aura:id="preview" />
+
+    <h2 class="slds-text-heading--medium">Code</h2>
+    <c:raidein_Highlight aura:id="highlight" />
 </aura:component>
