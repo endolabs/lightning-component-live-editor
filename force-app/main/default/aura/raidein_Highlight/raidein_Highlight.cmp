@@ -2,10 +2,10 @@
     <ltng:require styles="{! $Resource.prism + '/prism.css'}"
                   scripts="{! join(',', $Resource.prism + '/clipboard.js', $Resource.prism + '/prism.js' )}"
                   afterScriptsLoaded="{! c.scriptsLoaded}" />
-    
+
     <aura:attribute name="code" type="String" />
     <aura:attribute name="prism" type="Object" />
-    
+
     <aura:method name="highlightCode" action="{!c.highlightCode}">
         <aura:attribute name="code" type="String" />
     </aura:method>

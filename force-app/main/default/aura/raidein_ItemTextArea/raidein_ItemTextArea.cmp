@@ -23,51 +23,49 @@
 
     <h2 class="slds-text-heading--medium">Parameters</h2>
 
-    <lightning:input value="{! v.name }" name="name" label="name" onchange="{!c.update}"
+    <lightning:input value="{!v.name}" name="name" label="name" onchange="{!c.update}"
                      required="true" />
     <div class="slds-m-bottom--small"></div>
 
-    <lightning:input value="{! v.label }" name="label" label="label" onchange="{!c.update}"
+    <lightning:input value="{!v.label}" name="label" label="label" onchange="{!c.update}"
                      required="true" />
     <div class="slds-m-bottom--small"></div>
 
-    <lightning:input value="{! v.messageWhenBadInput }" name="messageWhenBadInput" label="messageWhenBadInput" onchange="{!c.update}" />
+    <lightning:input value="{!v.messageWhenBadInput}" name="messageWhenBadInput" label="messageWhenBadInput" onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
 
-    <lightning:input value="{! v.messageWhenTooLong }" name="messageWhenTooLong" label="messageWhenTooLong" onchange="{!c.update}" />
+    <lightning:input value="{!v.messageWhenTooLong}" name="messageWhenTooLong" label="messageWhenTooLong" onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
 
-    <lightning:input value="{! v.messageWhenValueMissing }" name="messageWhenValueMissing" label="messageWhenValueMissing" onchange="{!c.update}" />
+    <lightning:input value="{!v.messageWhenValueMissing}" name="messageWhenValueMissing" label="messageWhenValueMissing" onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
 
-    <lightning:input type="number" value="{! v.minlength  }" name="minlength " label="minlength " onchange="{!c.update}" />
+    <lightning:input type="number" value="{!v.minlength}" name="minlength " label="minlength " onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
 
-    <lightning:input type="number" value="{! v.maxlength  }" name="maxlength " label="maxlength " onchange="{!c.update}" />
+    <lightning:input type="number" value="{!v.maxlength}" name="maxlength " label="maxlength " onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
 
-    <lightning:input value="{! v.placeholder }" name="placeholder" label="placeholder" onchange="{!c.update}" />
-    <div class="slds-m-bottom--small"></div>
-
-        <lightning:input type="checkbox"
-                     value="{! v.readonly }" name="readonly" label="readonly" onchange="{!c.update}" />
+    <lightning:input value="{!v.placeholder}" name="placeholder" label="placeholder" onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
 
     <lightning:input type="checkbox"
-                     value="{! v.required }" name="required" label="required" onchange="{!c.update}" />
+                     value="{!v.readonly}" name="readonly" label="readonly" onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
 
-    <lightning:input value="{! v.title }" name="title" label="title" onchange="{!c.update}" />
+    <lightning:input type="checkbox"
+                     value="{!v.required}" name="required" label="required" onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
 
-    <lightning:input value="{! v.value }" name="value" label="value" onchange="{!c.update}" />
+    <lightning:input value="{!v.title}" name="title" label="title" onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
 
-    <lightning:select value="{! v.variant }" name="variant" label="variant"
-                      onchange="{!c.update}">
-        <option value="standard">standard</option>
-        <option value="label-hidden">label-hidden</option>
-    </lightning:select>
+    <lightning:input value="{!v.value}" name="value" label="value" onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <c:raidein_FormSelect value="{!v.variant}" name="variant" label="variant"
+                          options="standard,label-hidden"
+                          onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
 
     <h2 class="slds-text-heading--medium">Preview</h2>

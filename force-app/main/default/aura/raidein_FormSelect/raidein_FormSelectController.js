@@ -1,5 +1,5 @@
 ({
-  onchange_: function (component, event, helper) {
+  fireOnchange: function (component, event, helper) {
     var event = component.getEvent("onchange");
     event.fire();
   }

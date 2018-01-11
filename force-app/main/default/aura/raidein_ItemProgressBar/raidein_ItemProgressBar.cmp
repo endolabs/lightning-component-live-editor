@@ -1,38 +1,32 @@
 <aura:component >
     <aura:attribute name="progress" type="Integer" default="50"/>
-    <aura:attribute name="variant" type="String" default="base" />	
+    <aura:attribute name="variant" type="String" default="base" />
     <aura:attribute name="size" type="String" default="medium" />
     <aura:attribute name="code" type="String" />
     <aura:handler name="init" value="{!this}" action="{!c.update}"/>
-    
+
     <c:raidein_Util aura:id="util" />
-    
+
     <h1 class="slds-text-heading--large slds-truncate slds-m-bottom--medium">Progress Bar</h1>
 
     <h2 class="slds-text-heading--medium">Parameters</h2>
-    <lightning:input value="{! v.progress }" name="value" label="value" type="number" min="0" max="100"
+    <lightning:input value="{!v.progress}" name="value" label="value" type="number" min="0" max="100"
                      onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
-    
-    <lightning:select value="{! v.variant }" name="variant" label="variant"
-                      onchange="{!c.update}">
-        <option value="base">base</option>
-        <option value="circular">circular</option>
-    </lightning:select>
+
+    <c:raidein_FormSelect value="{! v.variant }" name="variant" label="variant"
+                          options="base,circular"
+                          onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
 
-    <lightning:select value="{! v.size }" name="size" label="size"
-                      onchange="{!c.update}">
-        <option value="x-small">x-small</option>
-        <option value="small">small</option>
-        <option value="medium">medium</option>
-        <option value="large">large</option>
-    </lightning:select>
+    <c:raidein_FormSelect value="{!v.size}" name="size" label="size"
+                          options="x-small,small,medium,large"
+                          onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
-    
+
     <h2 class="slds-text-heading--medium">Preview</h2>
     <c:raidein_Preview aura:id="preview" />
-    
-    <h2 class="slds-text-heading--medium">Code</h2>    
+
+    <h2 class="slds-text-heading--medium">Code</h2>
     <c:raidein_Highlight aura:id="highlight" />
 </aura:component>
