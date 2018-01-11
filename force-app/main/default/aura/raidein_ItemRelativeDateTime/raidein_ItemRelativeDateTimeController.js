@@ -1,6 +1,9 @@
 ({
-	init : function(component, event, helper) {
-        component.set('v.past', Date.now()-(2*60*60*1000));
-        component.set('v.future', Date.now()+(2*24*60*60*1000));
-	}
+  update: function (component, event, helper) {
+    var componentSetting = helper.componentSetting(component);
+    component.set("v.code", componentSetting.code);
+
+    helper.create(component, componentSetting);
+    helper.renderCode(component);
+  },
 })
