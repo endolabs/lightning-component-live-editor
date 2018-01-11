@@ -1,0 +1,18 @@
+<aura:component >
+    <aura:attribute name="value" type="String" />
+    <aura:attribute name="name" type="String" default="iconName" />
+    <aura:attribute name="iconNames" type="String[]" default="" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+
+    <aura:registerEvent name="onchange" type="c:raidein_Evt" />
+
+    <c:raidein_Util aura:id="util" />
+
+    <lightning:select value="{!v.value}" name="{!v.name}" label="{!v.name}"
+                      onchange="{!c.onchange}">
+        <aura:iteration items="{!v.iconNames}" var="icon">
+            <option value="{!icon}" text="{!icon}" />
+        </aura:iteration>
+    </lightning:select>
+</aura:component>

@@ -5,16 +5,15 @@
     <aura:attribute name="size" type="String" default="medium" />
     <aura:attribute name="type" type="String" default="button" />
     <aura:attribute name="variant" type="String" default="border" />
-    <aura:attribute name="iconNames" type="String[]" default="info" />
     <aura:attribute name="code" type="String" />
-    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.update}"/>
 
     <c:raidein_Util aura:id="util" />
 
     <h1 class="slds-text-heading--large slds-truncate slds-m-bottom--medium">Button Icon</h1>
 
     <h2 class="slds-text-heading--medium">Parameters</h2>
-    <lightning:input value="{! v.alternativeText }" name="alternativeText" label="alternativeText"
+    <lightning:input value="{!v.alternativeText}" name="alternativeText" label="alternativeText"
                      onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
 
@@ -22,27 +21,22 @@
                      type="checkbox" onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
 
-    <lightning:select value="{! v.iconName }" name="iconName" label="iconName"
-                      onchange="{!c.update}">
-        <aura:iteration items="{! v.iconNames }" var="icon">
-            <option value="{!icon}" text="{!icon}" />
-        </aura:iteration>
-    </lightning:select>
+    <c:raidein_FormIconSelect value="{!v.iconName}" onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
 
-    <c:raidein_FormSelect value="{! v.size }" name="size" label="size"
+    <c:raidein_FormSelect value="{!v.size}" name="size" label="size"
                           options="xx-small,x-small,small,medium"
-                          onchange="{! c.update }" />
+                          onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
 
-    <c:raidein_FormSelect value="{! v.type }" name="type" label="type"
+    <c:raidein_FormSelect value="{!v.type}" name="type" label="type"
                           options="button,reset,submit"
-                          onchange="{! c.update }" />
+                          onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
 
-    <c:raidein_FormSelect value="{! v.variant }" name="variant" label="variant"
+    <c:raidein_FormSelect value="{!v.variant}" name="variant" label="variant"
                           options="base,container,border,border-filled,bare-inverse,border-inverse"
-                          onchange="{! c.update }" />
+                          onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
 
     <h2 class="slds-text-heading--medium">Preview</h2>
