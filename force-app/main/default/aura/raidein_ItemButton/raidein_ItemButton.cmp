@@ -9,14 +9,9 @@
     <h1 class="slds-text-heading--large slds-truncate slds-m-bottom--medium">Button</h1>
 
     <h2 class="slds-text-heading--medium">Parameters</h2>
-    <lightning:select value="{! v.variant }" name="variant" label="variant"
-                      onchange="{!c.update}">
-        <option value="base">base</option>
-        <option value="neutral">neutral</option>
-        <option value="brand">brand</option>
-        <option value="destructive">destructive</option>
-        <option value="inverse">inverse</option>
-    </lightning:select>
+    <c:raidein_FormSelect value="{! v.variant }" name="variant" label="variant"
+                          options="base,neutral,brand,destructive,inverse"
+                          onchange="{! c.update }" />
     <div class="slds-m-bottom--small"></div>
 
     <h2 class="slds-text-heading--medium">Preview</h2>
