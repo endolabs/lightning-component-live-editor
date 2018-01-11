@@ -1,14 +1,25 @@
 <aura:component >
+    <aura:attribute name="iconName" type="String" />
+    <aura:attribute name="variant" type="String" default="base" />
     <aura:attribute name="code" type="String" />
     <aura:handler name="init" value="{!this}" action="{!c.update}"/>
-    
+
     <h1 class="slds-text-heading--large slds-truncate slds-m-bottom--medium">Card</h1>
-    
+
     <c:raidein_Util aura:id="util" />
-    
+
+    <h2 class="slds-text-heading--medium">Parameters</h2>
+    <c:raidein_FormIconSelect value="{!v.iconName}" onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <c:raidein_FormSelect value="{!v.variant}" name="variant" label="variant"
+                          options="base,narrow"
+                          onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
     <h2 class="slds-text-heading--medium">Preview</h2>
     <c:raidein_Preview aura:id="preview" />
-    
+
     <h2 class="slds-text-heading--medium">Code</h2>
     <c:raidein_Highlight aura:id="highlight" />
 </aura:component>

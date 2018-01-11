@@ -1,32 +1,33 @@
 <aura:component >
     <aura:attribute name="horizontalAlign" type="String" default="center" />
-    <aura:attribute name="pullToBoundary" type="String" default="medium" /> 
+    <aura:attribute name="verticalAlign" type="String" default="start" />
+    <aura:attribute name="pullToBoundary" type="String" default="medium" />
     <aura:attribute name="code" type="String" />
     <aura:handler name="init" value="{!this}" action="{!c.update}"/>
-    
+
     <c:raidein_Util aura:id="util" />
 
     <h1 class="slds-text-heading--large slds-truncate slds-m-bottom--medium">Layout</h1>
-    
+
     <h2 class="slds-text-heading--medium">Parameters(layout)</h2>
-    <lightning:select value="{! v.horizontalAlign }" name="horizontalAlign" label="horizontalAlign"
-                      onchange="{!c.update}">
-        <option value="center">center</option>
-        <option value="space">space</option>
-        <option value="spread">spread</option>
-        <option value="end">end</option>
-    </lightning:select>
-    <lightning:select value="{! v.pullToBoundary }" name="pullToBoundary" label="pullToBoundary"
-                      onchange="{!c.update}">
-        <option value="small">small</option>
-        <option value="medium">medium</option>
-        <option value="large">large</option>
-    </lightning:select>
+    <c:raidein_FormSelect value="{!v.horizontalAlign}" name="horizontalAlign" label="horizontalAlign"
+                          options="center,space,spread,end"
+                          onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <c:raidein_FormSelect value="{!v.verticalAlign}" name="verticalAlign" label="verticalAlign"
+                          options="start,center,end,stretch"
+                          onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <c:raidein_FormSelect value="{!v.pullToBoundary}" name="pullToBoundary" label="pullToBoundary"
+                          options="small,medium,large"
+                          onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
 
     <h2 class="slds-text-heading--medium">Preview</h2>
     <c:raidein_Preview aura:id="preview" />
-    
+
     <h2 class="slds-text-heading--medium">Code</h2>
     <c:raidein_Highlight aura:id="highlight" />
 </aura:component>

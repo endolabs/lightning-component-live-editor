@@ -17,7 +17,7 @@
         if (key[0] === '@') { // attribute
           var attrName = key.substring(1);
           var attrValue = template[key];
-          if (attrValue !== undefined || attrValue !== null) {
+          if (attrValue || attrValue === 0 || attrValue === false) {
 
             attrs.push(attrName + '="' + attrValue + '"');
             cmpAttrs[attrName] = attrValue;
