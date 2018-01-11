@@ -12,6 +12,10 @@ https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/light
 >
 > Base Lightning components incorporate Lightning Design System markup and classes, providing improved performance and accessibility with a minimum footprint.
 
+## Supported API Version
+
+- 41.0
+
 ## Installations
 
 - from Salesforce CLI
