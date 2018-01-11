@@ -1,3 +1,25 @@
 <aura:component >
-	
+    <aura:attribute name="latitude" type="String" default="37.7938460" />
+    <aura:attribute name="longitude" type="String" default="-122.3948370" />
+    <aura:attribute name="code" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.update}"/>
+
+    <c:raidein_Util aura:id="util" />
+
+    <h1 class="slds-text-heading--large slds-truncate slds-m-bottom--medium">Geolocation</h1>
+
+    <h2 class="slds-text-heading--medium">Parameters</h2>
+    <lightning:input value="{!v.latitude}" name="latitude" label="latitude" required="true"
+                     onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.longitude}" name="longitude" label="longitude" required="true"
+                     onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <h2 class="slds-text-heading--medium">Preview</h2>
+    <c:raidein_Preview aura:id="preview" />
+
+    <h2 class="slds-text-heading--medium">Code</h2>
+    <c:raidein_Highlight aura:id="highlight" />
 </aura:component>

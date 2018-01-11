@@ -1,6 +1,6 @@
 ({
   componentSetting: function (component) {
-    return component.find("util").parseTemplate('lightning:formattedNumber', {
+    return component.find("util").parseTemplate('lightning:formattedDateTime', {
       '@value': component.get("v.value")
     });
   },
