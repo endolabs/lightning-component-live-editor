@@ -1,14 +1,4 @@
 ({
-  update: function (component) {
-    var componentSetting = this.componentSetting(component);
-
-    var code = componentSetting.code;
-    component.set("v.code", code);
-
-    this.create(component, componentSetting.componentName, componentSetting.componentAttributes);
-    this.renderCode(component);
-  },
-
   componentSetting: function (component) {
     return component.find("util").parseTemplate('lightning:buttonIconStateful', {
       '@alternativeText': component.get("v.alternativeText"),

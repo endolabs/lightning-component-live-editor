@@ -1,31 +1,25 @@
 <aura:component >
     <aura:attribute name="content" type="String" default="" />
     <aura:attribute name="iconName" type="String" default="utility:info" />
-    <aura:attribute name="iconNames" type="String[]" default="info" />
     <aura:attribute name="code" type="String" />
-    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
-    
+    <aura:handler name="init" value="{!this}" action="{!c.update}"/>
+
     <c:raidein_Util aura:id="util" />
-    
+
     <h1 class="slds-text-heading--large slds-truncate slds-m-bottom--medium">Help Text (Tooltip)</h1>
-    
+
     <h2 class="slds-text-heading--medium">Parameters</h2>
     <lightning:input value="{! v.content }" name="content" label="content"
                      placeholder="Text to be shown in the popover."
                      onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
 
-    <lightning:select value="{! v.iconName }" name="iconName" label="iconName"
-                      onchange="{!c.update}">
-        <aura:iteration items="{! v.iconNames }" var="icon">
-            <option value="{!icon}" text="{!icon}" />
-        </aura:iteration>
-    </lightning:select>
+    <c:raidein_FormIconSelect value="{!v.iconName}" onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
-    
+
     <h2 class="slds-text-heading--medium">Preview</h2>
     <c:raidein_Preview aura:id="preview" />
-    
-    <h2 class="slds-text-heading--medium">Code</h2>    
+
+    <h2 class="slds-text-heading--medium">Code</h2>
     <c:raidein_Highlight aura:id="highlight" />
 </aura:component>

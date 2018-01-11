@@ -4,16 +4,13 @@
     component.set('v.selected', !buttonSelected);
   },
 
-  init: function (component, event, helper) {
-    var iconNames = component.find("util").getUtilityIconNames().map(function (icon) {
-      return 'utility:' + icon;
-    });
-
-    component.set("v.iconNames", iconNames);
-    helper.update(component);
-  },
-
   update: function (component, event, helper) {
-    helper.update(component);
+    var componentSetting = helper.componentSetting(component);
+
+    var code = componentSetting.code;
+    component.set("v.code", code);
+
+    helper.create(component, componentSetting.componentName, componentSetting.componentAttributes);
+    helper.renderCode(component);
   },
 })
