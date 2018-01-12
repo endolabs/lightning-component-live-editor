@@ -1,7 +1,10 @@
 ({
   componentSetting: function (component) {
     return component.find("util").parseTemplate('lightning:formattedUrl', {
-      '@value': component.get("v.value")
+      '@value': component.get("v.value"),
+      '@target': component.get("v.target"),
+      '@label': component.get("v.label"),
+      '@tooltip': component.get("v.tooltip")
     });
   },
 

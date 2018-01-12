@@ -1,5 +1,13 @@
 <aura:component >
     <aura:attribute name="value" type="String" default="1234.5678" />
+    <aura:attribute name="currencyCode" type="String" />
+    <aura:attribute name="currencyDisplayAs" type="String" default="symbol" />
+    <aura:attribute name="maximumFractionDigits" type="Integer" />
+    <aura:attribute name="maximumSignificantDigits" type="Integer" />
+    <aura:attribute name="minimumFractionDigits" type="Integer" />
+    <aura:attribute name="minimumIntegerDigits" type="Integer" />
+    <aura:attribute name="minimumSignificantDigits" type="Integer" />
+    <aura:attribute name="style" type="String" default="decimal" />
     <aura:attribute name="code" type="String" />
     <aura:handler name="init" value="{!this}" action="{!c.update}"/>
 
@@ -10,6 +18,49 @@
     <h2 class="slds-text-heading--medium">Parameters</h2>
     <lightning:input value="{!v.value}" name="value" label="value" required="true"
                      onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <c:raidein_FormSelect value="{!v.currencyCode}" name="currencyCode" label="currencyCode"
+                          options="USD"
+                          onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <c:raidein_FormSelect value="{!v.currencyDisplayAs}" name="currencyDisplayAs" label="currencyDisplayAs"
+                          options="symbol,code,name"
+                          onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input type="number" value="{!maximumFractionDigits}"
+                     name="maximumFractionDigits" label="maximumFractionDigits"
+                     onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input type="number" value="{!maximumSignificantDigits}"
+                     name="maximumSignificantDigits" label="maximumSignificantDigits"
+                     min="1" max="21"
+                     onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input type="number" value="{!minimumFractionDigits}"
+                     name="minimumFractionDigits" label="minimumFractionDigits"
+                     onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input type="number" value="{!minimumIntegerDigits}"
+                     name="minimumIntegerDigits" label="minimumIntegerDigits"
+                     min="1" max="21"
+                     onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input type="number" value="{!minimumSignificantDigits}"
+                     name="minimumSignificantDigits" label="minimumSignificantDigits"
+                     min="1" max="21"
+                     onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <c:raidein_FormSelect value="{!v.style}" name="style" label="style"
+                          options="decimal,currency,percent"
+                          onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
 
     <h2 class="slds-text-heading--medium">Preview</h2>

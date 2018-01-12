@@ -1,7 +1,8 @@
 ({
   componentSetting: function (component) {
     return component.find("util").parseTemplate('lightning:formattedEmail', {
-      '@value': component.get("v.value")
+      '@value': component.get("v.value"),
+      '@label': component.get("v.label")
     });
   },
 

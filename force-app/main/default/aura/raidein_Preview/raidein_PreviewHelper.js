@@ -7,7 +7,7 @@
   },
 
   createComponent: function (component, callerComponent, type, attributes, onSuccess) {
-    this.clear(component);
+    // this.clear(component);
 
     $A.createComponent(
       type, attributes,
@@ -31,7 +31,7 @@
   },
 
   createComponents: function (component, callerComponent, componentSetting, onSuccess) {
-    this.clear(component);
+    // this.clear(component);
 
     console.log("create components", componentSetting);
 

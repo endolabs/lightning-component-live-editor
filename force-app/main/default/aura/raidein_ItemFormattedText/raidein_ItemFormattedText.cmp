@@ -1,5 +1,6 @@
 <aura:component >
     <aura:attribute name="value" type="String" default="I like salesforce.com and trailhead.salesforce.com." />
+    <aura:attribute name="linkify" type="Boolean" default="false" />
     <aura:attribute name="code" type="String" />
     <aura:handler name="init" value="{!this}" action="{!c.update}"/>
 
@@ -9,6 +10,10 @@
 
     <h2 class="slds-text-heading--medium">Parameters</h2>
     <lightning:input value="{!v.value}" name="value" label="value"
+                     onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input type="checkbox" value="{!v.linkify}" name="linkify" label="linkify"
                      onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
 

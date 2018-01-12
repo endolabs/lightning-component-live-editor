@@ -1,5 +1,17 @@
 <aura:component >
     <aura:attribute name="value" type="String" default="1470174029742" />
+    <aura:attribute name="era" type="String" />
+    <aura:attribute name="year" type="String" />
+    <aura:attribute name="month" type="String" />
+    <aura:attribute name="weekday" type="String" />
+    <aura:attribute name="day" type="String" />
+    <aura:attribute name="hour12" type="String" />
+    <aura:attribute name="hour" type="String" />
+    <aura:attribute name="minute" type="String" />
+    <aura:attribute name="second" type="String" />
+    <aura:attribute name="timeZone" type="String" />
+    <aura:attribute name="timeZoneName" type="String" />
+
     <aura:attribute name="code" type="String" />
     <aura:handler name="init" value="{!this}" action="{!c.update}"/>
 
@@ -9,6 +21,52 @@
 
     <h2 class="slds-text-heading--medium">Parameters</h2>
     <lightning:input value="{!v.value}" name="value" label="value"
+                     onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <c:raidein_FormSelect value="{!v.era}" name="era" label="era"
+                          options="narrow,short,long"
+                          onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.year}" name="year" label="year"
+                     onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.month}" name="month" label="month"
+                     onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <c:raidein_FormSelect value="{!v.weekday}" name="weekday" label="weekday"
+                          options="narrow,short,long"
+                          onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.day}" name="day" label="day"
+                     onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input type="checkbox" value="{!v.hour12}" name="hour12" label="hour12"
+                     onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.hour}" name="hour" label="hour"
+                     onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.minute}" name="minute" label="minute"
+                     onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.second}" name="second" label="second"
+                     onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.timeZone}" name="timeZone" label="timeZone"
+                     onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.timeZoneName}" name="timeZoneName" label="timeZoneName"
                      onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
 

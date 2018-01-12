@@ -1,7 +1,8 @@
 ({
   componentSetting: function (component) {
     return component.find("util").parseTemplate('lightning:formattedText', {
-      '@value': component.get("v.value")
+      '@value': component.get("v.value"),
+      '@linkify': component.get("v.linkify")
     });
   },
 
