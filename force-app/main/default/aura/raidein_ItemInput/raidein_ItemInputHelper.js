@@ -1,16 +1,23 @@
 ({
   componentSetting: function (component) {
     return component.find("util").parseTemplate('lightning:input', {
-      // required
-      '@name': component.get("v.name"),
+      '@name': 'Some Value',
       '@value': component.get("v.value"),
       '@label': component.get("v.label"),
-      '@options': component.get("v.options")
-      // options
+      '@type': component.get("v.type"),
+      '@variant': component.get("v.variant"),
+      '@formatter': component.get("v.formatter"),
+      '@isLoading': component.get("v.isLoading"),
+      '@min': component.get("v.min"),
+      '@max': component.get("v.max"),
+      '@minLength': component.get("v.minLength"),
+      '@maxLength': component.get("v.minLength"),
+      '@pattern': component.get("v.pattern")
     });
   },
 
   create: function (component, componentSetting) {
+    // FIXME: type "file" causes inifinite error.
     component.find("preview").createComponent(component, componentSetting.componentName, componentSetting.componentAttributes);
   },
 

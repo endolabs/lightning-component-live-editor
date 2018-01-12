@@ -1,5 +1,11 @@
 <aura:component >
-    <aura:attribute name="value" type="String" default="" />
+    <aura:attribute name="label" type="String" default="My Coordinates" />
+    <aura:attribute name="latitude" type="String" default="37.7899" />
+    <aura:attribute name="longitude" type="String" default="-122.3969" />
+    <aura:attribute name="required" type="Boolean" default="false" />
+    <aura:attribute name="disabled" type="Boolean" default="false" />
+    <aura:attribute name="readonly" type="Boolean" default="false" />
+    <aura:attribute name="variant" type="String" default="standard" />
     <aura:attribute name="code" type="String" />
     <aura:handler name="init" value="{!this}" action="{!c.update}"/>
 
@@ -9,13 +15,17 @@
 
     <h2 class="slds-text-heading--medium">Parameters</h2>
 
-    <lightning:input value="{!v.messageWhenBadInput}" name="messageWhenBadInput" label="messageWhenBadInput" onchange="{!c.update}" />
+    <lightning:input value="{!v.label}" name="label" label="label" onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
 
-    <lightning:input value="{!v.placeholder}" name="placeholder" label="placeholder" onchange="{!c.update}" />
+    <lightning:input value="{!v.latitude}" name="latitude" label="latitude" onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
 
-    <lightning:input value="{!v.title}" name="title" label="title" onchange="{!c.update}" />
+    <lightning:input value="{!v.longitude}" name="longitude" label="longitude" onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <c:raidein_FormSelect value="{!v.variant}" name="variant" label="variant" onchange="{!c.update}"
+                          options="standard,label-hidden" />
     <div class="slds-m-bottom--small"></div>
 
     <h2 class="slds-text-heading--medium">Preview</h2>

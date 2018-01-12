@@ -1,12 +1,13 @@
 ({
   componentSetting: function (component) {
     return component.find("util").parseTemplate('lightning:radioGroup', {
-      // required
       '@name': component.get("v.name"),
       '@value': component.get("v.value"),
       '@label': component.get("v.label"),
-      '@options': component.get("v.options")
-      // options
+      '@options': component.get("v.options"),
+      '@type': component.get("v.type"),
+      '@messageWhenValueMissing': component.get("v.messageWhenValueMissing"),
+      '@title': component.get("v.title")
     });
   },
 

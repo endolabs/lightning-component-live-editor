@@ -1,5 +1,15 @@
 <aura:component >
-    <aura:attribute name="value" type="String" default="" />
+    <aura:attribute name="label" type="String" default="Field" />
+    <aura:attribute name="value" type="String" default="12345" />
+    <aura:attribute name="type" type="String" default="text" />
+    <aura:attribute name="variant" type="String" default="standard" />
+    <aura:attribute name="formatter" type="String" default="" />
+    <aura:attribute name="isLoading" type="Boolean" default="false" />
+    <aura:attribute name="min" type="Decimal" default="0.0" />
+    <aura:attribute name="max" type="Decimal" default="10000.0" />
+    <aura:attribute name="minLength" type="Integer" default="0" />
+    <aura:attribute name="maxLength" type="Integer" default="10" />
+    <aura:attribute name="pattern" type="String" default="" />
     <aura:attribute name="code" type="String" />
     <aura:handler name="init" value="{!this}" action="{!c.update}"/>
 
@@ -9,13 +19,39 @@
 
     <h2 class="slds-text-heading--medium">Parameters</h2>
 
-    <lightning:input value="{!v.messageWhenBadInput}" name="messageWhenBadInput" label="messageWhenBadInput" onchange="{!c.update}" />
+    <lightning:input value="{!v.label}" name="label" label="label" onchange="{!c.update}" required="true" />
     <div class="slds-m-bottom--small"></div>
 
-    <lightning:input value="{!v.placeholder}" name="placeholder" label="placeholder" onchange="{!c.update}" />
+    <lightning:input value="{!v.value}" name="value" label="value" onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
 
-    <lightning:input value="{!v.title}" name="title" label="title" onchange="{!c.update}" />
+    <c:raidein_FormSelect value="{!v.type}" name="type" label="type" onchange="{!c.update}"
+                          options="text,checkbox,checkbox-button,color,date,datetime-local,email,file,month,number,password,radio,range,search,tel,time,toggle,url,week,quantity" />
+    <div class="slds-m-bottom--small"></div>
+
+    <c:raidein_FormSelect value="{!v.variant}" name="variant" label="variant" onchange="{!c.update}"
+                          options="standard,label-hidden" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.formatter}" name="formatter" label="formatter" onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.isLoading}" name="isLoading" label="isLoading" onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.min}" name="min" label="min" onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.max}" name="max" label="max" onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.minLength}" name="minLength" label="minLength" onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.maxLength}" name="maxLength" label="maxLength" onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.pattern}" name="pattern" label="pattern" onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
 
     <h2 class="slds-text-heading--medium">Preview</h2>

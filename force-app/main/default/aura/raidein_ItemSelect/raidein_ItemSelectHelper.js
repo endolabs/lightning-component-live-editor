@@ -1,12 +1,10 @@
 ({
   componentSetting: function (component) {
     return component.find("util").parseTemplate('lightning:select', {
-      // required
-      '@name': component.get("v.name"),
+      '@name': 'select',
       '@value': component.get("v.value"),
       '@label': component.get("v.label"),
       '@options': component.get("v.options")
-      // options
     });
   },
 

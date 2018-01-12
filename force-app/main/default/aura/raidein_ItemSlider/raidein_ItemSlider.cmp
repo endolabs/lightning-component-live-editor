@@ -1,5 +1,19 @@
 <aura:component >
-    <aura:attribute name="value" type="String" default="" />
+    <aura:attribute name="value" type="String" default="10" />
+    <aura:attribute name="label" type="String" default="" />
+    <aura:attribute name="variant" type="String" default="standard" />
+    <aura:attribute name="min" type="Integer" />
+    <aura:attribute name="max" type="Integer" />
+    <aura:attribute name="step" type="String" />
+    <aura:attribute name="size" type="String" />
+    <aura:attribute name="messageWhenBadInput" type="String" />
+    <aura:attribute name="messageWhenPatternMismatch" type="String" />
+    <aura:attribute name="messageWhenTypeMismatch" type="String" />
+    <aura:attribute name="messageWhenValueMissing" type="String" />
+    <aura:attribute name="messageWhenRangeOverflow" type="String" />
+    <aura:attribute name="messageWhenRangeUnderflow" type="String" />
+    <aura:attribute name="messageWhenStepMismatch" type="String" />
+    <aura:attribute name="messageWhenTooLong" type="String" />
     <aura:attribute name="code" type="String" />
     <aura:handler name="init" value="{!this}" action="{!c.update}"/>
 
@@ -9,13 +23,50 @@
 
     <h2 class="slds-text-heading--medium">Parameters</h2>
 
+    <lightning:input value="{!v.value}" name="value" label="value" onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.label}" name="label" label="label" onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <c:raidein_FormSelect value="{!v.variant}" name="variant" label="variant" onchange="{!c.update}"
+                          options="standard,label-hidden" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.min}" name="min" label="min" onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.max}" name="max" label="max" onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.step}" name="step" label="step" onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.size}" name="size" label="size" onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
     <lightning:input value="{!v.messageWhenBadInput}" name="messageWhenBadInput" label="messageWhenBadInput" onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
 
-    <lightning:input value="{!v.placeholder}" name="placeholder" label="placeholder" onchange="{!c.update}" />
+    <lightning:input value="{!v.messageWhenPatternMismatch}" name="messageWhenPatternMismatch" label="messageWhenPatternMismatch" onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
 
-    <lightning:input value="{!v.title}" name="title" label="title" onchange="{!c.update}" />
+    <lightning:input value="{!v.messageWhenTypeMismatch}" name="messageWhenTypeMismatch" label="messageWhenTypeMismatch" onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.messageWhenValueMissing}" name="messageWhenValueMissing" label="messageWhenValueMissing" onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.messageWhenRangeOverflow}" name="messageWhenRangeOverflow" label="messageWhenRangeOverflow" onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.messageWhenRangeUnderflow}" name="messageWhenRangeUnderflow" label="messageWhenRangeUnderflow" onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.messageWhenStepMismatch}" name="messageWhenStepMismatch" label="messageWhenStepMismatch" onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.messageWhenTooLong}" name="messageWhenTooLong" label="messageWhenTooLong" onchange="{!c.update}" />
     <div class="slds-m-bottom--small"></div>
 
     <h2 class="slds-text-heading--medium">Preview</h2>

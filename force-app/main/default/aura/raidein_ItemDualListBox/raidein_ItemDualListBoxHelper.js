@@ -9,7 +9,7 @@
       '@options': component.get("v.options"),
       '@requiredOptions': ['2', '7'],
       '@variant': component.get("v.variant"),
-      '@readonly': true,
+      // '@readonly': false,
       '@min': component.get("v.min"),
       '@max': component.get("v.max")
     });

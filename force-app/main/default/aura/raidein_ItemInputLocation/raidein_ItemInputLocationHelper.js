@@ -1,12 +1,10 @@
 ({
   componentSetting: function (component) {
     return component.find("util").parseTemplate('lightning:inputLocation', {
-      // required
-      '@name': component.get("v.name"),
-      '@value': component.get("v.value"),
       '@label': component.get("v.label"),
-      '@options': component.get("v.options")
-      // options
+      '@latitude': component.get("v.latitude"),
+      '@longitude': component.get("v.longitude"),
+      '@variant': component.get("v.variant")
     });
   },
 
