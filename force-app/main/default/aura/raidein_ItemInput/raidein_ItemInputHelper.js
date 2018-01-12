@@ -1,6 +1,6 @@
 ({
   componentSetting: function (component) {
-    return component.find("util").parseTemplate('lightning:select', {
+    return component.find("util").parseTemplate('lightning:input', {
       // required
       '@name': component.get("v.name"),
       '@value': component.get("v.value"),

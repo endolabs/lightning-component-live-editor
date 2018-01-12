@@ -1,3 +1,26 @@
 <aura:component >
-	
+    <aura:attribute name="value" type="String" default="" />
+    <aura:attribute name="code" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.update}"/>
+
+    <c:raidein_Util aura:id="util" />
+
+    <h1 class="slds-text-heading--large slds-truncate slds-m-bottom--medium">Slider</h1>
+
+    <h2 class="slds-text-heading--medium">Parameters</h2>
+
+    <lightning:input value="{!v.messageWhenBadInput}" name="messageWhenBadInput" label="messageWhenBadInput" onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.placeholder}" name="placeholder" label="placeholder" onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.title}" name="title" label="title" onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <h2 class="slds-text-heading--medium">Preview</h2>
+    <c:raidein_Preview aura:id="preview" />
+
+    <h2 class="slds-text-heading--medium">Code</h2>
+    <c:raidein_Highlight aura:id="highlight" />
 </aura:component>

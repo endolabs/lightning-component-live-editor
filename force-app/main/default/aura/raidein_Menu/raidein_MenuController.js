@@ -53,6 +53,7 @@
           { label: "コンボボックス", name: "Combobox" },
           { label: "デュエル選択リスト", name: "DualListBox" },
           { label: "ファイルアップロード・プレビュー", name: "FileUpload" },
+          { label: "入力", name: "Input" },
           { label: "入力位置(地理位置情報)", name: "InputLocation" },
           { label: "ラジオグループ", name: "RadioGroup" },
           { label: "選択", name: "Select" },

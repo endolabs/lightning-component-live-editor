@@ -1,3 +1,54 @@
 <aura:component >
-	
+    <aura:attribute name="value" type="String" default="in-progress" />
+    <aura:attribute name="label" type="String" default="Status" />
+    <aura:attribute name="options" type="List" default="[
+      {'label': 'New', 'value': 'new'},
+      {'label': 'In Progress', 'value': 'in-progress'},
+      {'label': 'Finished', 'value': 'finished'}
+    ]" />
+    <aura:attribute name="variant" type="String" default="standard" />
+    <aura:attribute name="required" type="Boolean" default="true" />
+    <aura:attribute name="disabled" type="Boolean" default="false" />
+    <aura:attribute name="readonly" type="Boolean" default="false" />
+    <aura:attribute name="placeholder" type="String" default="&quot;Select an Option&quot;" />
+    <aura:attribute name="dropdownAlignment" type="String" default="left" />
+    <aura:attribute name="messageWhenValueMissing" type="String" />
+    <aura:attribute name="code" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.update}"/>
+
+    <c:raidein_Util aura:id="util" />
+
+    <h1 class="slds-text-heading--large slds-truncate slds-m-bottom--medium">Combobox</h1>
+
+    <h2 class="slds-text-heading--medium">Parameters</h2>
+
+    <lightning:input value="{!v.value}" name="value" label="value" onchange="{!c.update}" required="true" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.label}" name="label" label="label" onchange="{!c.update}" required="true" />
+    <div class="slds-m-bottom--small"></div>
+
+    <c:raidein_FormSelect value="{!v.variant}" name="variant" label="variant"
+                          options="standard,label-hidden"
+                          onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.placeholder}" name="placeholder" label="placeholder"
+                     onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <c:raidein_FormSelect value="{!v.dropdownAlignment}" name="dropdownAlignment" label="dropdownAlignment"
+                          options="left,center,right,bottom-left,bottom-center,bottom-right"
+                          onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.messageWhenValueMissing}" name="messageWhenValueMissing" label="messageWhenValueMissing"
+                     onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <h2 class="slds-text-heading--medium">Preview</h2>
+    <c:raidein_Preview aura:id="preview" />
+
+    <h2 class="slds-text-heading--medium">Code</h2>
+    <c:raidein_Highlight aura:id="highlight" />
 </aura:component>

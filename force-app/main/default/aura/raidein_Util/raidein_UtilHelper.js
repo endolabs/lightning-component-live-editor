@@ -1,5 +1,10 @@
 ({
   parseTemplate: function (componentName, template) {
+    var escape = function (value) {
+      // TODO
+      return (value && Array.isArray(value)) ? JSON.stringify(value).replace(new RegExp('"', 'g'), '\'') : value;
+    };
+
     var parseTemplateInternal = function (componentName, template, depth) {
       var indent = Array(depth + 1).join('  ');
       var cmpAttrs = {};
@@ -19,7 +24,7 @@
           var attrValue = template[key];
           if (attrValue || attrValue === 0 || attrValue === false) {
 
-            attrs.push(attrName + '="' + attrValue + '"');
+            attrs.push(attrName + '="' + escape(attrValue) + '"');
             cmpAttrs[attrName] = attrValue;
           }
         } else {

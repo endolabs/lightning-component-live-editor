@@ -1,3 +1,61 @@
 <aura:component >
-	
+    <aura:attribute name="value" type="List" default="['7','2','3']" />
+    <aura:attribute name="label" type="String" default="Select Options" />
+    <aura:attribute name="sourceLabel" type="String" default="Available Options" />
+    <aura:attribute name="selectedLabel" type="String" default="Selected Options" />
+    <aura:attribute name="options" type="List" default="[
+      {'label': 'Option 1', 'value': '1'},
+      {'label': 'Option 2', 'value': '2'},
+      {'label': 'Option 3', 'value': '3'},
+      {'label': 'Option 4', 'value': '4'},
+      {'label': 'Option 5', 'value': '5'},
+      {'label': 'Option 6', 'value': '6'},
+      {'label': 'Option 7', 'value': '7'},
+      {'label': 'Option 8', 'value': '8'}
+    ]" />
+    <aura:attribute name="variant" type="String" default="standard" />
+    <aura:attribute name="required" type="Boolean" default="true" />
+    <aura:attribute name="disabled" type="Boolean" default="false" />
+    <aura:attribute name="readonly" type="Boolean" default="false" />
+    <aura:attribute name="min" type="Integer" default="1" />
+    <aura:attribute name="max" type="Integer" default="3" />
+    <aura:attribute name="code" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.update}"/>
+
+    <c:raidein_Util aura:id="util" />
+
+    <h1 class="slds-text-heading--large slds-truncate slds-m-bottom--medium">Dual Listbox</h1>
+
+    <h2 class="slds-text-heading--medium">Parameters</h2>
+
+    <lightning:input value="{!v.value}" name="value" label="value" onchange="{!c.update}" required="true" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.label}" name="label" label="label" onchange="{!c.update}" required="true" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.sourceLabel}" name="sourceLabel" label="sourceLabel" required="true"
+                     onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input value="{!v.selectedLabel}" name="selectedLabel" label="selectedLabel" required="true"
+                     onchange="{!c.update}"  />
+    <div class="slds-m-bottom--small"></div>
+
+    <c:raidein_FormSelect value="{!v.variant}" name="variant" label="variant"
+                          options="standard,label-hidden"
+                          onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input type="number" value="{!v.min}" name="min" label="min" onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <lightning:input type="number" value="{!v.max}" name="max" label="max" onchange="{!c.update}" />
+    <div class="slds-m-bottom--small"></div>
+
+    <h2 class="slds-text-heading--medium">Preview</h2>
+    <c:raidein_Preview aura:id="preview" />
+
+    <h2 class="slds-text-heading--medium">Code</h2>
+    <c:raidein_Highlight aura:id="highlight" />
 </aura:component>

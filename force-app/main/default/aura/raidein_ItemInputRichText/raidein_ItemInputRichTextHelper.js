@@ -11,8 +11,8 @@
     });
   },
 
-  create: function (component, name, attributes) {
-    component.find("preview").createComponent(component, name, attributes);
+  create: function (component, componentSetting) {
+    component.find("preview").createComponent(component, componentSetting.componentName, componentSetting.componentAttributes);
   },
 
   renderCode: function (component) {
