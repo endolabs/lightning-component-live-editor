@@ -19,7 +19,7 @@
   },
 
   create: function (component, componentSetting) {
-    component.find("preview").createComponent(component, componentSetting.componentName, componentSetting.componentAttributes);
+    component.find("preview").createComponents(component, componentSetting);
   },
 
   renderCode: function (component) {
