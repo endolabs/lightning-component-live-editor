@@ -2,11 +2,12 @@
     <aura:attribute name="value" type="String" />
     <aura:attribute name="name" type="String" />
     <aura:attribute name="label" type="String" />
+    <aura:attribute name="required" type="Boolean" default="false" />
     <aura:attribute name="options" type="String[]" default="" />
 
     <aura:registerEvent name="onchange" type="c:raidein_Evt" />
 
-    <lightning:select value="{!v.value}" name="{!v.name}" label="{!v.label}"
+    <lightning:select value="{!v.value}" name="{!v.name}" label="{!v.label}" required="{!v.required}"
                       onchange="{!c.fireOnchange}">
         <aura:iteration items="{!v.options}" var="opt">
             <option value="{!opt}">{!opt}</option>
