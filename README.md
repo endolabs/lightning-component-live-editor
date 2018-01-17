@@ -19,7 +19,7 @@ https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/light
 ## Features
 
 - real-time preview
-- real-time code highlight
+- real-time code highlighting, uses [Prism](http://prismjs.com/)
 - implemented by Lightning Component Framework (there is no Apex & Visualforce)
 - supports almost components and many attributes
 
