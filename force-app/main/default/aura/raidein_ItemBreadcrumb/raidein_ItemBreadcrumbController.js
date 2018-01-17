@@ -1,10 +1,9 @@
 ({
-  navigateToCustomPage1: function (component, event, helper) {
-    event.preventDefault();
-    //your custom navigation here
+  update: function (component, event, helper) {
+    var componentSetting = helper.componentSetting(component);
+    component.set("v.code", componentSetting.code);
+
+    helper.create(component, componentSetting);
+    helper.renderCode(component);
   },
-  navigateToCustomPage2: function (component, event, helper) {
-    event.preventDefault();
-    //your custom navigation here
-  }
 })
