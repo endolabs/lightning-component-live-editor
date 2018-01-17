@@ -2,7 +2,7 @@
 
 :pensive: This application has not been completed yet.
 
-Live (means WYSIWYG) Editor and Showcase for Base Lightning Components.
+Live Editor and Showcase for Salesforce Base Lightning Components.
 
 ## What is Base Lightning Components?
 
@@ -14,13 +14,19 @@ https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/light
 
 ## Supported API Version
 
-- 41.0
+- v41.0
+
+## Features
+
+- real-time preview
+- real-time code highlight
+- implemented by Lightning Component Framework (there is no Apex & Visualforce)
+- supports almost components and many attributes
 
 ## Installations
 
 - from Salesforce CLI
 - from unmanaged package (in future)
-- from deploy-to-sfdx (in future)
 
 ### from Salesforce CLI
 
@@ -60,10 +66,6 @@ $ sfdx force:org:open -u myorg
 
 TBD
 
-### From deploy-to-sfdx
-
-TBD
-
 ## Roadmap
 
 Work in Progres
@@ -78,8 +80,3 @@ Serveral attributes are not editable.
 - attribute types
   - Component[]
   - Aura.Action
-
-Not supported components
-
-- ``lightning:flow``
-- ``lightning:workspaceAPI``
